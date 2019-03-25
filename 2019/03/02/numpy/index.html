@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Numpy初级 - Hexo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy初级">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/numpy/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-02T08:38:55.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Numpy初级">
+<meta name="twitter:description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Numpy初级" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">日期</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-02T07:01:28.000Z">2019-03-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 465 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Numpy初级
+            
+        </h1>
+        <div class="content">
+            <h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">l = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]</span><br><span class="line"><span class="hljs-comment"># 列表转化成矩阵</span></span><br><span class="line">array = np.array(l)</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1 2 3]
+ [2 3 4]]
+</code></pre><a id="more"></a>
+<h3 id="numpy的几种属性"><a href="#numpy的几种属性" class="headerlink" title="numpy的几种属性"></a>numpy的几种属性</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 维度</span></span><br><span class="line">print(<span class="hljs-string">'number of dim:'</span>,array.ndim)</span><br><span class="line"><span class="hljs-comment"># 行数和列数</span></span><br><span class="line">print(<span class="hljs-string">'shape :'</span>,array.shape)    </span><br><span class="line"><span class="hljs-comment"># 元素个数</span></span><br><span class="line">print(<span class="hljs-string">'size:'</span>,array.size)</span><br></pre></td></tr></table></figure>
+<pre><code>number of dim: 2
+shape : (2, 3)
+size: 6
+</code></pre><h3 id="创建array"><a href="#创建array" class="headerlink" title="创建array"></a>创建array</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],dtype = np.int)</span><br><span class="line">print(a,a.dtype)</span><br></pre></td></tr></table></figure>
+<pre><code>[2 3 4] int64
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建全0数组</span></span><br><span class="line">a = np.zeros((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),dtype = np.int16)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[0 0 0 0]
+ [0 0 0 0]
+ [0 0 0 0]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建全1数组</span></span><br><span class="line">a = np.ones((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),dtype = np.int64)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1 1 1 1]
+ [1 1 1 1]
+ [1 1 1 1]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建全空数组</span></span><br><span class="line">a = np.empty((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),dtype = np.float)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[-1.49166815e-154 -1.49166815e-154  4.27255699e+180  6.12033286e+257]
+ [ 3.83819517e+151  9.77368093e+165  1.03927302e-042  5.24049485e+174]
+ [ 4.27796595e-033  5.81088333e+294 -1.49166815e-154  8.38743761e-309]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建连续数组</span></span><br><span class="line">a = np.arange(<span class="hljs-number">1</span>,<span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 生成线段</span></span><br><span class="line">a = np.linspace(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">6</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 1.   2.8  4.6]
+ [ 6.4  8.2 10. ]]
+</code></pre><h2 id="基础运算"><a href="#基础运算" class="headerlink" title="基础运算"></a>基础运算</h2><h3 id="基本运算1"><a href="#基本运算1" class="headerlink" title="基本运算1"></a>基本运算1</h3><h4 id="数组运算"><a href="#数组运算" class="headerlink" title="数组运算"></a>数组运算</h4><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>])</span><br><span class="line">b = np.arange(<span class="hljs-number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a-b</span><br></pre></td></tr></table></figure>
+<pre><code>array([10, 19, 28, 37])
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b**<span class="hljs-number">2</span></span><br></pre></td></tr></table></figure>
+<pre><code>array([0, 1, 4, 9])
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.sin(a)</span><br></pre></td></tr></table></figure>
+<pre><code>array([-0.54402111,  0.91294525, -0.98803162,  0.74511316])
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b&lt;<span class="hljs-number">3</span></span><br></pre></td></tr></table></figure>
+<pre><code>array([ True,  True,  True, False])
+</code></pre><h4 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h4><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])</span><br><span class="line">b = np.arange(<span class="hljs-number">4</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1 2]
+ [3 4]]
+[[0 1]
+ [2 3]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 对应元素相乘</span></span><br><span class="line">print(a*b)</span><br><span class="line"><span class="hljs-comment"># 矩阵乘法</span></span><br><span class="line">print(np.dot(a,b))</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 0  2]
+ [ 6 12]]
+[[ 4  7]
+ [ 8 15]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.random((<span class="hljs-number">2</span>,<span class="hljs-number">4</span>))</span><br><span class="line">print(a)</span><br><span class="line"><span class="hljs-comment"># axis=1时每行分别计算，axis=0时每列分别计算</span></span><br><span class="line">print(<span class="hljs-string">'sum ='</span>,np.sum(a,axis=<span class="hljs-number">1</span>))</span><br><span class="line">print(<span class="hljs-string">'min ='</span>,np.min(a,axis=<span class="hljs-number">0</span>))</span><br><span class="line">print(<span class="hljs-string">'max ='</span>,np.max(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[[0.31357817 0.09926399 0.57284534 0.9692283 ]
+ [0.86206853 0.94729865 0.80886452 0.01849844]]
+sum = [1.9549158  2.63673014]
+min = [0.31357817 0.09926399 0.57284534 0.01849844]
+max = 0.9692282997410551
+</code></pre><h3 id="基本运算2"><a href="#基本运算2" class="headerlink" title="基本运算2"></a>基本运算2</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="hljs-number">2</span>,<span class="hljs-number">14</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 2  3  4  5]
+ [ 6  7  8  9]
+ [10 11 12 13]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 最小（大）值索引</span></span><br><span class="line">A.argmax()</span><br></pre></td></tr></table></figure>
+<pre><code>11
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 平均值</span></span><br><span class="line">print(A.mean())</span><br><span class="line"><span class="hljs-comment"># 对列求平均</span></span><br><span class="line">print(A.mean(axis=<span class="hljs-number">0</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>7.5
+[6. 7. 8. 9.]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 中位数</span></span><br><span class="line">np.median(A)</span><br></pre></td></tr></table></figure>
+<pre><code>7.5
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 累加</span></span><br><span class="line">print(np.cumsum(A))</span><br></pre></td></tr></table></figure>
+<pre><code>[ 2  5  9 14 20 27 35 44 54 65 77 90]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 累差</span></span><br><span class="line">print(np.diff(A))</span><br></pre></td></tr></table></figure>
+<pre><code>[[1 1 1]
+ [1 1 1]
+ [1 1 1]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 排序</span></span><br><span class="line">print(np.sort(A))</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 2  3  4  5]
+ [ 6  7  8  9]
+ [10 11 12 13]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 转置</span></span><br><span class="line">print(np.transpose(A))</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 2  6 10]
+ [ 3  7 11]
+ [ 4  8 12]
+ [ 5  9 13]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># A*AT</span></span><br><span class="line">print(np.dot(A,A.T))</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 54 110 166]
+ [110 230 350]
+ [166 350 534]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 滤波</span></span><br><span class="line">print(np.clip(A,<span class="hljs-number">5</span>,<span class="hljs-number">9</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[[5 5 5 5]
+ [6 7 8 9]
+ [9 9 9 9]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 铺平</span></span><br><span class="line">print(A.flatten())</span><br></pre></td></tr></table></figure>
+<pre><code>[ 2  3  4  5  6  7  8  9 10 11 12 13]
+</code></pre><h2 id="numpy索引"><a href="#numpy索引" class="headerlink" title="numpy索引"></a>numpy索引</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="hljs-number">3</span>,<span class="hljs-number">15</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 3  4  5  6]
+ [ 7  8  9 10]
+ [11 12 13 14]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line"><span class="hljs-comment">#A[1][1]</span></span><br></pre></td></tr></table></figure>
+<pre><code>8
+</code></pre><h2 id="array合并"><a href="#array合并" class="headerlink" title="array合并"></a>array合并</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>])</span><br><span class="line">B = np.array([<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])</span><br><span class="line"></span><br><span class="line">np.vstack((A,B))</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1, 1, 1],
+       [2, 2, 2]])
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.hstack((A,B))</span><br></pre></td></tr></table></figure>
+<pre><code>array([1, 1, 1, 2, 2, 2])
+</code></pre><h2 id="array分割"><a href="#array分割" class="headerlink" title="array分割"></a>array分割</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="hljs-number">12</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">np.split(A,<span class="hljs-number">3</span>)</span><br><span class="line"><span class="hljs-comment"># 横向分割</span></span><br><span class="line"><span class="hljs-comment"># np.vsplit(A,3)</span></span><br><span class="line"><span class="hljs-comment"># 纵向分割</span></span><br><span class="line"><span class="hljs-comment"># np.hsplit(A,2)</span></span><br></pre></td></tr></table></figure>
+<pre><code>[array([[0, 1, 2, 3]]), array([[4, 5, 6, 7]]), array([[ 8,  9, 10, 11]])]
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 不等量分割</span></span><br><span class="line">np.array_split(A,<span class="hljs-number">3</span>,axis=<span class="hljs-number">1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[array([[0, 1],
+        [4, 5],
+        [8, 9]]), array([[ 2],
+        [ 6],
+        [10]]), array([[ 3],
+        [ 7],
+        [11]])]
+</code></pre><h2 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>])</span><br><span class="line"><span class="hljs-comment"># b.copy()没有关联性，为浅拷贝</span></span><br><span class="line">a <span class="hljs-keyword">is</span> b.copy()</span><br></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/25/hello-world/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Hello World</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/avatar.jpg" alt="Alohe">
+                    
+                    <p class="is-size-4 is-block">
+                        Alohe
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        keep learning...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tag
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        1
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="/">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/sailing-7">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="https://weibo.com/u/5459019335">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="music" href="http://music.163.com/m/user/home?id=273155403">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100035163003525&amp;lst=100035163003525%3A100035163003525%3A1553525703&amp;sk=timeline">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Numpy初级" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
