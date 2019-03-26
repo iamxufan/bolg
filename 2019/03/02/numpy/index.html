@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+    <meta name="description" content="NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Numpy初级">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/numpy/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+<meta property="og:description" content="NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-26T03:35:27.030Z">
+<meta property="og:updated_time" content="2019-03-26T04:33:20.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numpy初级">
-<meta name="twitter:description" content="numpy123456import numpy as npl = [[1,2,3],[2,3,4]]# 列表转化成矩阵array = np.array(l)print(array) [[1 2 3]  [2 3 4]]">
+<meta name="twitter:description" content="NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。">
 
 
 
@@ -106,7 +106,7 @@
                 
                 <a class="navbar-item" href="/tags">标签</a>
                 
-                <a class="navbar-item" href="/about">关于</a>
+                <a class="navbar-item" href="/images/numpy.md">关于</a>
                 
             </div>
             
@@ -122,7 +122,7 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
@@ -157,7 +157,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 465 words)
+                    3 minutes read (About 515 words)
                 </span>
                 
             </div>
@@ -169,15 +169,14 @@
             
         </h1>
         <div class="content">
-            <h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">l = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]</span><br><span class="line"><span class="hljs-comment"># 列表转化成矩阵</span></span><br><span class="line">array = np.array(l)</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure>
+            <p>NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。<br><a id="more"></a><br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">l = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]</span><br><span class="line"><span class="hljs-comment"># 列表转化成矩阵</span></span><br><span class="line">array = np.array(l)</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure></p>
 <pre><code>[[1 2 3]
  [2 3 4]]
-</code></pre><a id="more"></a>
-<h3 id="numpy的几种属性"><a href="#numpy的几种属性" class="headerlink" title="numpy的几种属性"></a>numpy的几种属性</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 维度</span></span><br><span class="line">print(<span class="hljs-string">'number of dim:'</span>,array.ndim)</span><br><span class="line"><span class="hljs-comment"># 行数和列数</span></span><br><span class="line">print(<span class="hljs-string">'shape :'</span>,array.shape)    </span><br><span class="line"><span class="hljs-comment"># 元素个数</span></span><br><span class="line">print(<span class="hljs-string">'size:'</span>,array.size)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="numpy的几种属性"><a href="#numpy的几种属性" class="headerlink" title="numpy的几种属性"></a>numpy的几种属性</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 维度</span></span><br><span class="line">print(<span class="hljs-string">'number of dim:'</span>,array.ndim)</span><br><span class="line"><span class="hljs-comment"># 行数和列数</span></span><br><span class="line">print(<span class="hljs-string">'shape :'</span>,array.shape)    </span><br><span class="line"><span class="hljs-comment"># 元素个数</span></span><br><span class="line">print(<span class="hljs-string">'size:'</span>,array.size)</span><br></pre></td></tr></table></figure>
 <pre><code>number of dim: 2
 shape : (2, 3)
 size: 6
-</code></pre><h3 id="创建array"><a href="#创建array" class="headerlink" title="创建array"></a>创建array</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],dtype = np.int)</span><br><span class="line">print(a,a.dtype)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="创建array"><a href="#创建array" class="headerlink" title="创建array"></a>创建array</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],dtype = np.int)</span><br><span class="line">print(a,a.dtype)</span><br></pre></td></tr></table></figure>
 <pre><code>[2 3 4] int64
 </code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建全0数组</span></span><br><span class="line">a = np.zeros((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),dtype = np.int16)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
 <pre><code>[[0 0 0 0]
@@ -308,7 +307,7 @@ max = 0.9692282997410551
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -317,7 +316,7 @@ max = 0.9692282997410551
     new Valine({
         el: '#valine-thread' ,
         notify: false,
-        verify: false,
+        verify: true,
         app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
         app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
         placeholder: '快来评论吧！'
@@ -339,55 +338,51 @@ max = 0.9692282997410551
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catálogo
+                Catalogue
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#numpy">
-        <span class="has-mr-6">1.1</span>
-        <span>numpy</span>
-        </a></li><li>
+            <ul class="menu-list"><li>
         <a class="is-flex" href="#numpy的几种属性">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">1</span>
         <span>numpy的几种属性</span>
         </a></li><li>
         <a class="is-flex" href="#创建array">
-        <span class="has-mr-6">1.3</span>
-        <span>创建array</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#基础运算">
         <span class="has-mr-6">2</span>
+        <span>创建array</span>
+        </a></li><li>
+        <a class="is-flex" href="#基础运算">
+        <span class="has-mr-6">3</span>
         <span>基础运算</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#基本运算1">
-        <span class="has-mr-6">2.1</span>
+        <span class="has-mr-6">3.1</span>
         <span>基本运算1</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#数组运算">
-        <span class="has-mr-6">2.1.1</span>
+        <span class="has-mr-6">3.1.1</span>
         <span>数组运算</span>
         </a></li><li>
         <a class="is-flex" href="#矩阵运算">
-        <span class="has-mr-6">2.1.2</span>
+        <span class="has-mr-6">3.1.2</span>
         <span>矩阵运算</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#基本运算2">
-        <span class="has-mr-6">2.2</span>
+        <span class="has-mr-6">3.2</span>
         <span>基本运算2</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#numpy索引">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">4</span>
         <span>numpy索引</span>
         </a></li><li>
         <a class="is-flex" href="#array合并">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">5</span>
         <span>array合并</span>
         </a></li><li>
         <a class="is-flex" href="#array分割">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>array分割</span>
         </a></li><li>
         <a class="is-flex" href="#copy">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>copy</span>
         </a></li></ul>
         </div>
@@ -425,7 +420,7 @@ max = 0.9692282997410551
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entrada
+                        Post
                     </p>
                     <p class="title has-text-weight-normal">
                         1
@@ -435,7 +430,7 @@ max = 0.9692282997410551
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -445,7 +440,7 @@ max = 0.9692282997410551
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiqueta
+                        Tag
                     </p>
                     <p class="title has-text-weight-normal">
                         1
@@ -455,7 +450,7 @@ max = 0.9692282997410551
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="/">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -479,12 +474,6 @@ max = 0.9692282997410551
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100035163003525&amp;lst=100035163003525%3A100035163003525%3A1553525703&amp;sk=timeline">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
         </div>
         
     </div>
@@ -494,7 +483,7 @@ max = 0.9692282997410551
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/python/" style="font-size: 10px;">python</a>
     </div>
@@ -638,10 +627,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
