@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Keras手把手教学之 💯 - Hexo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Keras Sequential 顺序模型">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras手把手教学之 💯">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/keras notebook/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Keras Sequential 顺序模型">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-27T03:48:31.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keras手把手教学之 💯">
+<meta name="twitter:description" content="Keras Sequential 顺序模型">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136944640-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136944640-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Keras手把手教学之 💯" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">日期</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/images/numpy.md">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-27T03:39:28.000Z">2019-03-27</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1024 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Keras手把手教学之 💯
+            
+        </h1>
+        <div class="content">
+            <!--# Keras手把手教学之-->
+<h2 id="Keras-Sequential-顺序模型"><a href="#Keras-Sequential-顺序模型" class="headerlink" title="Keras Sequential 顺序模型"></a>Keras Sequential 顺序模型</h2><a id="more"></a>
+<h3 id="模型搭建"><a href="#模型搭建" class="headerlink" title="模型搭建"></a>模型搭建</h3><p><a href="#Example">直接看例子点这里</a>👈🏻<br><code>Sequential</code> 模型是层的线性堆栈</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> keras</span><br><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential</span><br><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Activation</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="hljs-comment"># Dense: fully connection(DNN密集型神经网络)</span></span><br><span class="line">model.add(Dense(input_dim=<span class="hljs-number">28</span>*<span class="hljs-number">28</span>,units=<span class="hljs-number">500</span>))</span><br><span class="line"><span class="hljs-comment"># activation function:</span></span><br><span class="line"><span class="hljs-comment"># softplus, softsign, relu, tanh, hard_sigmoid, linear</span></span><br><span class="line">model.add(Activation(<span class="hljs-string">'sigmoid'</span>))</span><br><span class="line"><span class="hljs-comment"># the second hidden layer</span></span><br><span class="line">model.add(Dense(units=<span class="hljs-number">500</span>))</span><br><span class="line">model.add(Activation(<span class="hljs-string">'sigmoid'</span>))</span><br><span class="line"></span><br><span class="line">model.add(Dense(units=<span class="hljs-number">10</span>))</span><br><span class="line">model.add(Activation(<span class="hljs-string">'softmax'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="模型配置"><a href="#模型配置" class="headerlink" title="模型配置"></a>模型配置</h3><p>在训练模型之前，您需要配置学习过程，这是通过 <code>compile</code> 方法完成的。它接收三个参数：</p>
+<ol>
+<li>优化器 <code>optimizer</code>。它可以是现有优化器的字符串标识符，如 <code>rmsprop</code> 或 <code>adagrad</code>，也可以是 <code>Optimizer</code> 类的实例。</li>
+<li>损失函数 <code>loss</code>，模型试图最小化的目标函数。它可以是现有损失函数的字符串标识符，如 <code>categorical_crossentropy</code> 或 <code>mse</code>，也可以是一个目标函数。</li>
+<li>评估标准 <code>metrics</code>。对于任何分类问题，你都希望将其设置为 <code>metrics = [&#39;accuracy&#39;]</code>。</li>
+</ol>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 二分类问题</span></span><br><span class="line">model.compile(optimizer=<span class="hljs-string">'rmsprop'</span>,</span><br><span class="line">              loss=<span class="hljs-string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 均方误差回归问题</span></span><br><span class="line">model.compile(optimizer=<span class="hljs-string">'rmsprop'</span>,</span><br><span class="line">              loss=<span class="hljs-string">'mse'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 自定义评估标准函数</span></span><br><span class="line"><span class="hljs-keyword">import</span> keras.backend <span class="hljs-keyword">as</span> K</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mean_pred</span><span class="hljs-params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> K.mean(y_pred)</span><br><span class="line"></span><br><span class="line">model.compile(optimizer=<span class="hljs-string">'rmsprop'</span>,</span><br><span class="line">              loss=<span class="hljs-string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>, mean_pred])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># step 3.1:</span></span><br><span class="line"><span class="hljs-comment"># Configuration</span></span><br><span class="line"><span class="hljs-comment"># optimizer = [SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam]</span></span><br><span class="line">model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=<span class="hljs-string">'adam'</span>,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><p><code>Keras</code> 模型在输入数据和标签的 <code>Numpy</code> 矩阵上进行训练。为了训练一个模型，你通常会使用 <code>fit</code> 函数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 具有 10 个类的单输入模型（多分类分类）：</span></span><br><span class="line"><span class="hljs-comment"># 生成虚拟数据</span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line">data = np.random.random((<span class="hljs-number">50000</span>, <span class="hljs-number">28</span>*<span class="hljs-number">28</span>))</span><br><span class="line">labels = np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">50000</span>, <span class="hljs-number">1</span>))</span><br><span class="line"><span class="hljs-comment"># 将标签转换为分类的 one-hot 编码</span></span><br><span class="line">one_hot_labels = keras.utils.to_categorical(labels, num_classes=<span class="hljs-number">10</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># step 3.2:</span></span><br><span class="line"><span class="hljs-comment"># Find the optimal network parameters</span></span><br><span class="line"><span class="hljs-comment"># do not really minimize total loss</span></span><br><span class="line"><span class="hljs-comment"># betch_size:</span></span><br><span class="line"><span class="hljs-comment"># --&gt; pick the 1st batch L' = L1 + L31 + ...</span></span><br><span class="line"><span class="hljs-comment"># update parameters once</span></span><br><span class="line"><span class="hljs-comment"># --&gt; pick the 2nd batch ...</span></span><br><span class="line"><span class="hljs-comment"># all of the betch make one epoch: need 20 epoch</span></span><br><span class="line"><span class="hljs-comment"># when beach_size = 1:</span></span><br><span class="line"><span class="hljs-comment">#     Stochastic gradient descent</span></span><br><span class="line">model.fit(data, one_hot_labels, epochs=<span class="hljs-number">20</span>, batch_size=<span class="hljs-number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Epoch 1/20
+50000/50000 [==============================] - 4s 84us/step - loss: 2.3052 - acc: 0.1004
+Epoch 2/20
+50000/50000 [==============================] - 5s 92us/step - loss: 2.3046 - acc: 0.1019
+Epoch 3/20
+50000/50000 [==============================] - 4s 87us/step - loss: 2.3053 - acc: 0.0997
+Epoch 4/20
+50000/50000 [==============================] - 4s 84us/step - loss: 2.3057 - acc: 0.1014
+Epoch 5/20
+50000/50000 [==============================] - 5s 92us/step - loss: 2.3057 - acc: 0.1027
+Epoch 6/20
+50000/50000 [==============================] - 5s 91us/step - loss: 2.3065 - acc: 0.1035
+Epoch 7/20
+50000/50000 [==============================] - 4s 84us/step - loss: 2.3077 - acc: 0.1034
+Epoch 8/20
+50000/50000 [==============================] - 5s 94us/step - loss: 2.3081 - acc: 0.1039
+Epoch 9/20
+50000/50000 [==============================] - 4s 89us/step - loss: 2.3057 - acc: 0.1109
+Epoch 10/20
+50000/50000 [==============================] - 4s 87us/step - loss: 2.3012 - acc: 0.1190
+Epoch 11/20
+50000/50000 [==============================] - 4s 87us/step - loss: 2.2925 - acc: 0.1285
+Epoch 12/20
+50000/50000 [==============================] - 4s 88us/step - loss: 2.2836 - acc: 0.1375
+Epoch 13/20
+50000/50000 [==============================] - 4s 84us/step - loss: 2.2744 - acc: 0.1476
+Epoch 14/20
+50000/50000 [==============================] - 4s 86us/step - loss: 2.2675 - acc: 0.1526
+Epoch 15/20
+50000/50000 [==============================] - 4s 85us/step - loss: 2.2638 - acc: 0.1551
+Epoch 16/20
+50000/50000 [==============================] - 4s 80us/step - loss: 2.2556 - acc: 0.1602
+Epoch 17/20
+50000/50000 [==============================] - 4s 83us/step - loss: 2.2525 - acc: 0.1638
+Epoch 18/20
+50000/50000 [==============================] - 5s 94us/step - loss: 2.2534 - acc: 0.1617
+Epoch 19/20
+50000/50000 [==============================] - 5s 93us/step - loss: 2.2462 - acc: 0.1681
+Epoch 20/20
+50000/50000 [==============================] - 4s 83us/step - loss: 2.2403 - acc: 0.1694
+
+
+
+
+
+&lt;keras.callbacks.History at 0x126444278&gt;
+</code></pre><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>基于多层感知器 <code>(MLP)</code> 的 <code>softmax</code> 多分类（分类器）：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> keras</span><br><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential</span><br><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Dropout, Activation</span><br><span class="line"><span class="hljs-keyword">from</span> keras.optimizers <span class="hljs-keyword">import</span> SGD</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 生成虚拟数据</span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-comment"># 1000行*20列 的区间在[0.,1.)的浮点数</span></span><br><span class="line">x_train = np.random.random((<span class="hljs-number">1000</span>, <span class="hljs-number">20</span>))</span><br><span class="line"><span class="hljs-comment"># 生成 1000行*1列 的区间在[0-10)的整数，随后转化为分类的 one-hot 编码（1000行*10列 的(0,1)矩阵）</span></span><br><span class="line">y_train = keras.utils.to_categorical(np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">1000</span>, <span class="hljs-number">1</span>)), num_classes=<span class="hljs-number">10</span>)</span><br><span class="line"><span class="hljs-comment"># 100行*20列 的测试集</span></span><br><span class="line">x_test = np.random.random((<span class="hljs-number">100</span>, <span class="hljs-number">20</span>))</span><br><span class="line"><span class="hljs-comment"># 100行*10列 的测试标签</span></span><br><span class="line">y_test = keras.utils.to_categorical(np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">100</span>, <span class="hljs-number">1</span>)), num_classes=<span class="hljs-number">10</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line"><span class="hljs-comment"># Dense(64) 是一个具有 64 个隐藏神经元的全连接层。</span></span><br><span class="line"><span class="hljs-comment"># 在第一层必须指定所期望的输入数据尺寸：</span></span><br><span class="line"><span class="hljs-comment"># 在这里，是一个 20 维的向量。</span></span><br><span class="line">model.add(Dense(units=<span class="hljs-number">64</span>, activation=<span class="hljs-string">'relu'</span>, input_dim=<span class="hljs-number">20</span>))</span><br><span class="line">model.add(Dropout(rate=<span class="hljs-number">0.5</span>))</span><br><span class="line">model.add(Dense(units=<span class="hljs-number">64</span>, activation=<span class="hljs-string">'relu'</span>))</span><br><span class="line">model.add(Dropout(rate=<span class="hljs-number">0.5</span>))</span><br><span class="line">model.add(Dense(units=<span class="hljs-number">10</span>, activation=<span class="hljs-string">'softmax'</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 优化器</span></span><br><span class="line">sgd = SGD(lr=<span class="hljs-number">0.01</span>, decay=<span class="hljs-number">1e-6</span>, momentum=<span class="hljs-number">0.9</span>, nesterov=<span class="hljs-literal">True</span>)</span><br><span class="line"><span class="hljs-comment"># 模型配置</span></span><br><span class="line">model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=sgd,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 模型训练</span></span><br><span class="line">model.fit(x_train, y_train,</span><br><span class="line">          epochs=<span class="hljs-number">20</span>,</span><br><span class="line">          batch_size=<span class="hljs-number">128</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Epoch 1/20
+1000/1000 [==============================] - 0s 402us/step - loss: 2.4034 - acc: 0.1010
+Epoch 2/20
+1000/1000 [==============================] - 0s 19us/step - loss: 2.3808 - acc: 0.0920
+Epoch 3/20
+1000/1000 [==============================] - 0s 22us/step - loss: 2.3396 - acc: 0.1120
+Epoch 4/20
+1000/1000 [==============================] - 0s 23us/step - loss: 2.3249 - acc: 0.1190
+Epoch 5/20
+1000/1000 [==============================] - 0s 20us/step - loss: 2.3356 - acc: 0.0980
+Epoch 6/20
+1000/1000 [==============================] - 0s 22us/step - loss: 2.3233 - acc: 0.1210
+Epoch 7/20
+1000/1000 [==============================] - 0s 18us/step - loss: 2.3070 - acc: 0.1080
+Epoch 8/20
+1000/1000 [==============================] - 0s 22us/step - loss: 2.3190 - acc: 0.1030
+Epoch 9/20
+1000/1000 [==============================] - 0s 22us/step - loss: 2.3112 - acc: 0.0900
+Epoch 10/20
+1000/1000 [==============================] - 0s 20us/step - loss: 2.3076 - acc: 0.0960
+Epoch 11/20
+1000/1000 [==============================] - 0s 15us/step - loss: 2.3067 - acc: 0.1060
+Epoch 12/20
+1000/1000 [==============================] - 0s 16us/step - loss: 2.3058 - acc: 0.1160
+Epoch 13/20
+1000/1000 [==============================] - 0s 16us/step - loss: 2.2988 - acc: 0.1180
+Epoch 14/20
+1000/1000 [==============================] - 0s 17us/step - loss: 2.3008 - acc: 0.1240
+Epoch 15/20
+1000/1000 [==============================] - 0s 20us/step - loss: 2.3036 - acc: 0.1090
+Epoch 16/20
+1000/1000 [==============================] - 0s 22us/step - loss: 2.3042 - acc: 0.1060
+Epoch 17/20
+1000/1000 [==============================] - 0s 18us/step - loss: 2.3016 - acc: 0.1070
+Epoch 18/20
+1000/1000 [==============================] - 0s 25us/step - loss: 2.3054 - acc: 0.1390
+Epoch 19/20
+1000/1000 [==============================] - 0s 39us/step - loss: 2.2960 - acc: 0.1200
+Epoch 20/20
+1000/1000 [==============================] - 0s 34us/step - loss: 2.3021 - acc: 0.0940
+
+
+
+
+
+&lt;keras.callbacks.History at 0x1842de6b38&gt;
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 模型评分</span></span><br><span class="line">score = model.evaluate(x_test, y_test, batch_size=<span class="hljs-number">128</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>100/100 [==============================] - 0s 13us/step
+</code></pre>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/26/matplotlib/">
+                <span class="level-item">Matplotlibn笔记📒</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Commentaires</h3>
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
+        app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
+        placeholder: '快来评论吧！'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Keras-Sequential-顺序模型">
+        <span class="has-mr-6">1</span>
+        <span>Keras Sequential 顺序模型</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#模型搭建">
+        <span class="has-mr-6">1.1</span>
+        <span>模型搭建</span>
+        </a></li><li>
+        <a class="is-flex" href="#模型配置">
+        <span class="has-mr-6">1.2</span>
+        <span>模型配置</span>
+        </a></li><li>
+        <a class="is-flex" href="#模型训练">
+        <span class="has-mr-6">1.3</span>
+        <span>模型训练</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Example">
+        <span class="has-mr-6">2</span>
+        <span>Example</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/avatar.jpg" alt="Alohe">
+                    
+                    <p class="is-size-4 is-block">
+                        Alohe
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        keep learning...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Articles
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Catégories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tag
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        1
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="/">
+                SUIVRE</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/sailing-7">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="https://weibo.com/u/5459019335">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="music" href="http://music.163.com/m/user/home?id=273155403">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nuage de tags
+        </h3>
+        <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Keras手把手教学之 💯" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Articles',
+                PAGES: 'Pages',
+                CATEGORIES: 'Catégories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
