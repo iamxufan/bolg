@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="alohe">
 <meta property="og:description" content="Keras Sequential 顺序模型">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T04:02:04.575Z">
+<meta property="og:updated_time" content="2019-03-27T15:03:48.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Keras手把手教学之 💯">
 <meta name="twitter:description" content="Keras Sequential 顺序模型">
@@ -24,7 +24,7 @@
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+<link rel="icon" href="/images/logo.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -83,7 +83,6 @@
 
 
 <link rel="stylesheet" href="/css/style.css">
-
 </head>
 <body class="is-2-column">
     <nav class="navbar navbar-main">
@@ -106,6 +105,8 @@
                 <a class="navbar-item" href="/categories">分类</a>
                 
                 <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/">关于</a>
                 
             </div>
             
@@ -168,7 +169,8 @@
         <div class="content">
             <!--# Keras手把手教学之-->
 <h2 id="Keras-Sequential-顺序模型"><a href="#Keras-Sequential-顺序模型" class="headerlink" title="Keras Sequential 顺序模型"></a>Keras Sequential 顺序模型</h2><a id="more"></a>
-<h3 id="模型搭建"><a href="#模型搭建" class="headerlink" title="模型搭建"></a>模型搭建</h3><p><a href="#Example">直接看例子点这里</a>👈🏻<br><code>Sequential</code> 模型是层的线性堆栈</p>
+<h3 id="模型搭建"><a href="#模型搭建" class="headerlink" title="模型搭建"></a>模型搭建</h3><p><em><a href="#Example">直接看例子点这里</a> 👈🏻</em></p>
+<p><code>Sequential</code> 模型是层的线性堆栈</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> keras</span><br><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential</span><br><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Activation</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="hljs-comment"># Dense: fully connection(DNN密集型神经网络)</span></span><br><span class="line">model.add(Dense(input_dim=<span class="hljs-number">28</span>*<span class="hljs-number">28</span>,units=<span class="hljs-number">500</span>))</span><br><span class="line"><span class="hljs-comment"># activation function:</span></span><br><span class="line"><span class="hljs-comment"># softplus, softsign, relu, tanh, hard_sigmoid, linear</span></span><br><span class="line">model.add(Activation(<span class="hljs-string">'sigmoid'</span>))</span><br><span class="line"><span class="hljs-comment"># the second hidden layer</span></span><br><span class="line">model.add(Dense(units=<span class="hljs-number">500</span>))</span><br><span class="line">model.add(Activation(<span class="hljs-string">'sigmoid'</span>))</span><br><span class="line"></span><br><span class="line">model.add(Dense(units=<span class="hljs-number">10</span>))</span><br><span class="line">model.add(Activation(<span class="hljs-string">'softmax'</span>))</span><br></pre></td></tr></table></figure>
 <h3 id="模型配置"><a href="#模型配置" class="headerlink" title="模型配置"></a>模型配置</h3><p>在训练模型之前，您需要配置学习过程，这是通过 <code>compile</code> 方法完成的。它接收三个参数：</p>
 <ol>
@@ -294,16 +296,6 @@ Epoch 20/20
         
         
         
-        <!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_google_plus"></a>
-</div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-        
     </div>
 </div>
 
@@ -391,7 +383,7 @@ Epoch 20/20
         <nav class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/maxtocat.gif" alt="Alohe">
+                    <img class="image is-128x128 has-mb-6" src="/avatar.jpg" alt="Alohe">
                     
                     <p class="is-size-4 is-block">
                         Alohe
@@ -514,7 +506,6 @@ Epoch 20/20
     </div>
 </div>
 
-
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
@@ -616,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
