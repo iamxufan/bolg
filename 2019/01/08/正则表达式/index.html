@@ -16,7 +16,7 @@
 <meta property="og:description" content="RegEx">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-01-08T05:30:46.049Z">
+<meta property="og:updated_time" content="2019-04-02T09:11:11.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="RegEx">
@@ -28,7 +28,7 @@
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+<link rel="icon" href="/images/logo.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -135,6 +135,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -272,7 +276,7 @@ None
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -299,13 +303,77 @@ None
 <div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#RegEx">
+        <span>RegEx</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#特殊种类匹配">
+        <span>特殊种类匹配</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#数字">
+        <span>数字</span>
+        </a></li><li>
+        <a class="is-flex" href="#空白">
+        <span>空白</span>
+        </a></li><li>
+        <a class="is-flex" href="#所有字母数字和”-”">
+        <span>所有字母数字和”_”</span>
+        </a></li><li>
+        <a class="is-flex" href="#空格">
+        <span>空格</span>
+        </a></li><li>
+        <a class="is-flex" href="#特殊字符和任意字符">
+        <span>特殊字符和任意字符</span>
+        </a></li><li>
+        <a class="is-flex" href="#句首句尾">
+        <span>句首句尾</span>
+        </a></li><li>
+        <a class="is-flex" href="#是否">
+        <span>是否</span>
+        </a></li><li>
+        <a class="is-flex" href="#多行匹配">
+        <span>多行匹配</span>
+        </a></li><li>
+        <a class="is-flex" href="#0或多次-1或多次">
+        <span>0或多次  1或多次</span>
+        </a></li><li>
+        <a class="is-flex" href="#可选次数">
+        <span>可选次数</span>
+        </a></li><li>
+        <a class="is-flex" href="#GROUP组">
+        <span>GROUP组</span>
+        </a></li><li>
+        <a class="is-flex" href="#寻找所有匹配">
+        <span>寻找所有匹配</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#替换">
+        <span>替换</span>
+        </a></li><li>
+        <a class="is-flex" href="#分裂">
+        <span>分裂</span>
+        </a></li><li>
+        <a class="is-flex" href="#Compile">
+        <span>Compile</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
 <div class="card widget">
     <div class="card-content">
         <nav class="level">
             <div class="level-item has-text-centered">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/maxtocat.gif" alt="Alohe">
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.jpg" alt="Alohe">
                     
                     
                     <p class="is-size-4 is-block">
@@ -330,7 +398,7 @@ None
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         12
@@ -340,7 +408,7 @@ None
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -350,7 +418,7 @@ None
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -360,7 +428,7 @@ None
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://octodex.github.com/" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -390,13 +458,11 @@ None
 </div>
     
         
-    
-        
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -433,7 +499,7 @@ None
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
@@ -622,10 +688,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
