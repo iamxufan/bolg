@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>SQL - alohe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="SQL SQL 指结构化查询语言 SQL 使我们有能力访问数据库 SQL 是一种 ANSI 的标准计算机语言">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/sql/index.html">
+<meta property="og:site_name" content="alohe">
+<meta property="og:description" content="SQL SQL 指结构化查询语言 SQL 使我们有能力访问数据库 SQL 是一种 ANSI 的标准计算机语言">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-02-21T03:24:42.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL">
+<meta name="twitter:description" content="SQL SQL 指结构化查询语言 SQL 使我们有能力访问数据库 SQL 是一种 ANSI 的标准计算机语言">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136944640-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136944640-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="SQL" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">🏠</a>
+                
+                <a class="navbar-item" href="/archives">📆</a>
+                
+                <a class="navbar-item" href="/categories">🎯</a>
+                
+                <a class="navbar-item" href="/tags">📎</a>
+                
+                <a class="navbar-item" href="/2000/03/02/留言板/">📮</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-02-21T02:18:10.000Z">2019-02-21</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 minutes read (About 1918 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                SQL
+            
+        </h1>
+        <div class="content">
+            <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><ol>
+<li>SQL 指结构化查询语言</li>
+<li>SQL 使我们有能力访问数据库</li>
+<li>SQL 是一种 ANSI 的标准计算机语言<a id="more"></a>
+</li>
+</ol>
+<blockquote>
+<p>RDBMS - 关系数据库管理系统（Relational Database Management System）</p>
+</blockquote>
+<h3 id="DML-和-DDL"><a href="#DML-和-DDL" class="headerlink" title="DML 和 DDL"></a>DML 和 DDL</h3><p>可以把 SQL 分为两个部分：数据操作语言 (DML) 和 数据定义语言 (DDL)。<br>SQL (结构化查询语言)是用于执行查询的语法。但是 SQL 语言也包含用于更新、插入和删除记录的语法。</p>
+<p>查询和更新指令构成了 SQL 的 DML 部分：</p>
+<blockquote>
+<ul>
+<li>SELECT - 从数据库表中获取数据</li>
+<li>UPDATE - 更新数据库表中的数据</li>
+<li>DELETE - 从数据库表中删除数据</li>
+<li>INSERT INTO - 向数据库表中插入数据</li>
+</ul>
+</blockquote>
+<p>SQL 的数据定义语言 (DDL) 部分使我们有能力创建或删除表格。我们也可以定义索引（键），规定表之间的链接，以及施加表间的约束。</p>
+<p>SQL 中最重要的 DDL 语句:</p>
+<blockquote>
+<ul>
+<li>CREATE DATABASE - 创建新数据库</li>
+<li>ALTER DATABASE - 修改数据库</li>
+<li>CREATE TABLE - 创建新表</li>
+<li>ALTER TABLE - 变更（改变）数据库表</li>
+<li>DROP TABLE - 删除表</li>
+<li>CREATE INDEX - 创建索引（搜索键）</li>
+<li>DROP INDEX - 删除索引</li>
+</ul>
+</blockquote>
+<h3 id="SELECT语句"><a href="#SELECT语句" class="headerlink" title="SELECT语句"></a>SELECT语句</h3><h4 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># SELECT 列名称 FROM 表名称</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> students;</span><br></pre></td></tr></table></figure>
+<h4 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 用于返回唯一不同的值</span></span><br><span class="line"><span class="hljs-comment"># SELECT DISTINCT 列名称 FROM 表名称</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> Company <span class="hljs-keyword">FROM</span> Orders ;</span><br></pre></td></tr></table></figure>
+<h4 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</span></span><br></pre></td></tr></table></figure>
+<h4 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> Company, OrderNumber <span class="hljs-keyword">FROM</span> Orders <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Company <span class="hljs-keyword">DESC</span>, OrderNumber <span class="hljs-keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)</span></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> Persons <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Gates'</span>, <span class="hljs-string">'Bill'</span>, <span class="hljs-string">'Xuanwumen 10'</span>, <span class="hljs-string">'Beijing'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> Persons (LastName, Address) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Wilson'</span>, <span class="hljs-string">'Champs-Elysees'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</span></span><br><span class="line"><span class="hljs-comment"># 我们为 lastname 是 "Wilson" 的人添加 firstname：</span></span><br><span class="line"><span class="hljs-keyword">UPDATE</span> Person <span class="hljs-keyword">SET</span> FirstName = <span class="hljs-string">'Fred'</span> <span class="hljs-keyword">WHERE</span> LastName = <span class="hljs-string">'Wilson'</span> </span><br><span class="line"><span class="hljs-comment"># 我们会修改地址（address），并添加城市名称（city）：</span></span><br><span class="line"><span class="hljs-keyword">UPDATE</span> Person <span class="hljs-keyword">SET</span> Address = <span class="hljs-string">'Zhongshan 23'</span>, City = <span class="hljs-string">'Nanjing'</span> <span class="hljs-keyword">WHERE</span> LastName = <span class="hljs-string">'Wilson'</span></span><br></pre></td></tr></table></figure>
+<h4 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 删除行</span></span><br><span class="line"><span class="hljs-comment"># DELETE FROM 表名称 WHERE 列名称 = 值</span></span><br><span class="line"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> Person <span class="hljs-keyword">WHERE</span> LastName = <span class="hljs-string">'Wilson'</span> </span><br><span class="line"><span class="hljs-comment"># 删除所有行</span></span><br><span class="line"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> table_name</span><br><span class="line"><span class="hljs-keyword">DELETE</span> * <span class="hljs-keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<h3 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h3><h4 id="TOP"><a href="#TOP" class="headerlink" title="TOP"></a>TOP</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 我们希望从上面的 "Persons" 表中选取头两条记录</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> TOP <span class="hljs-number">2</span> * <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-comment"># 我们希望从上面的 "Persons" 表中选取 50% 的记录</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> TOP <span class="hljs-number">50</span> <span class="hljs-keyword">PERCENT</span> * <span class="hljs-keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<h4 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h4><p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 从上面的 "Persons" 表中选取居住在以 "N" 开始的城市里的人：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons <span class="hljs-keyword">WHERE</span> City <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'N%'</span></span><br><span class="line"><span class="hljs-comment"># "%" 可用于定义通配符（模式中缺少的字母）</span></span><br><span class="line"><span class="hljs-comment"># 从 "Persons" 表中选取居住在不包含 "lon" 的城市里的人：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons <span class="hljs-keyword">WHERE</span> City <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%lon%'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 从上面的 "Persons" 表中选取居住的城市不以 "A" 或 "L" 或 "N" 开头的人：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">WHERE</span> City <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'[!ALN]%'</span></span><br></pre></td></tr></table></figure>
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><p>IN 操作符允许我们在 WHERE 子句中规定多个值<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 从上表中选取姓氏为 Adams 和 Carter 的人：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">WHERE</span> LastName <span class="hljs-keyword">IN</span> (<span class="hljs-string">'Adams'</span>,<span class="hljs-string">'Carter'</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><p>BETWEEN 操作符在 WHERE 子句中使用，作用是选取介于两个值之间的数据范围。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 以字母顺序显示介于 "Adams"（包括）和 "Carter"（不包括）之间的人，请使用下面的 SQL：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">WHERE</span> LastName</span><br><span class="line"><span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">'Adams'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">'Carter'</span></span><br><span class="line"><span class="hljs-comment"># 使用上面的例子显示范围之外的人，请使用 NOT 操作符：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">WHERE</span> LastName</span><br><span class="line"><span class="hljs-keyword">NOT</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">'Adams'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">'Carter'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> LastName <span class="hljs-keyword">AS</span> Family, FirstName <span class="hljs-keyword">AS</span> <span class="hljs-keyword">Name</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<h4 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h4><p>join 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。</p>
+<ol>
+<li>先确定主表，仍然使用FROM &lt;表1&gt;的语法；</li>
+<li>再确定需要连接的表，使用INNER JOIN &lt;表2&gt;的语法；</li>
+<li>然后确定连接条件，使用ON &lt;条件…&gt;，这里的条件是s.class_id = c.id，表示students表的class_id列与classes表的id列相同的行需要连接；</li>
+<li>可选：加上WHERE子句、ORDER BY等子句。<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 列出所有人的定购，可以使用下面的 SELECT 语句：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line"><span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Orders</span><br><span class="line"><span class="hljs-keyword">ON</span> Persons.Id_P = Orders.Id_P</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Persons.LastName</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h4><p>UNION 操作符用于合并两个或多个 SELECT 语句的结果集<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 列出所有在中国和美国的不同的雇员名：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> E_Name <span class="hljs-keyword">FROM</span> Employees_China</span><br><span class="line"><span class="hljs-keyword">UNION</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> E_Name <span class="hljs-keyword">FROM</span> Employees_USA</span><br><span class="line"><span class="hljs-comment"># UNION ALL 允许重复</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="SELECT-INTO"><a href="#SELECT-INTO" class="headerlink" title="SELECT INTO"></a>SELECT INTO</h4><ul>
+<li>SELECT INTO 语句可用于创建表的备份复件</li>
+<li>SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中。</li>
+<li>SELECT INTO 语句常用于创建表的备份复件或者用于对记录进行存档。<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 备份</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> *</span><br><span class="line"><span class="hljs-keyword">INTO</span> Persons_backup</span><br><span class="line"><span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-comment"># 创建一个名为 "Persons_Order_Backup" 的新表，其中包含了从 Persons 和 Orders 两个表中取得的信息：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> Persons.LastName,Orders.OrderNo</span><br><span class="line"><span class="hljs-keyword">INTO</span> Persons_Order_Backup</span><br><span class="line"><span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Orders</span><br><span class="line"><span class="hljs-keyword">ON</span> Persons.Id_P = Orders.Id_P</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="CREATE-DATABASE"><a href="#CREATE-DATABASE" class="headerlink" title="CREATE DATABASE"></a>CREATE DATABASE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建数据库</span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> my_db</span><br></pre></td></tr></table></figure>
+<h4 id="CREATE-TABLE"><a href="#CREATE-TABLE" class="headerlink" title="CREATE TABLE"></a>CREATE TABLE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="hljs-built_in">int</span>,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="约束-Constraints"><a href="#约束-Constraints" class="headerlink" title="约束 (Constraints)"></a>约束 (Constraints)</h3><ul>
+<li>NOT NULL</li>
+<li>UNIQUE</li>
+<li>PRIMARY KEY</li>
+<li>FOREIGN KEY</li>
+<li>CHECK</li>
+<li>DEFAULT</li>
+</ul>
+<h4 id="NOT-NULL"><a href="#NOT-NULL" class="headerlink" title="NOT NULL"></a>NOT NULL</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 强制列不接受 NULL 值</span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="UNIQUE"><a href="#UNIQUE" class="headerlink" title="UNIQUE"></a>UNIQUE</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line"><span class="hljs-keyword">UNIQUE</span> (Id_P)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>当表已被创建时，如需在 “Id_P” 列创建 UNIQUE 约束，请使用下列 SQL：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">UNIQUE</span> (Id_P)</span><br></pre></td></tr></table></figure></p>
+<h4 id="PRIMARY-KEY"><a href="#PRIMARY-KEY" class="headerlink" title="PRIMARY KEY"></a>PRIMARY KEY</h4><ul>
+<li>PRIMARY KEY 约束唯一标识数据库表中的每条记录。</li>
+<li>主键必须包含唯一的值。</li>
+<li>主键列不能包含 NULL 值。</li>
+<li>每个表都应该有一个主键，并且每个表只能有一个主键。<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">PRIMARY <span class="hljs-keyword">KEY</span> (Id_P)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果在表已存在的情况下为 “Id_P” 列创建 PRIMARY KEY 约束，请使用下面的 SQL：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line"><span class="hljs-keyword">ADD</span> PRIMARY <span class="hljs-keyword">KEY</span> (Id_P)</span><br></pre></td></tr></table></figure></p>
+<h4 id="DEFAULT"><a href="#DEFAULT" class="headerlink" title="DEFAULT"></a>DEFAULT</h4><p>DEFAULT 约束用于向列中插入默认值。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">Id_P <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'Sandnes'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h4 id="CREATE-INDEX"><a href="#CREATE-INDEX" class="headerlink" title="CREATE INDEX"></a>CREATE INDEX</h4><ul>
+<li>CREATE INDEX 语句用于在表中创建索引。</li>
+<li>在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据。<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在表上创建一个简单的索引。允许使用重复的值：</span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> index_name</span><br><span class="line"><span class="hljs-keyword">ON</span> table_name (column_name)</span><br><span class="line"><span class="hljs-comment"># 在表上创建一个唯一的索引</span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">INDEX</span> index_name</span><br><span class="line"><span class="hljs-keyword">ON</span> table_name (column_name)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h4><p>通过使用 DROP 语句，可以轻松地删除索引、表和数据库。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> 表名称</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">DATABASE</span> 数据库名称</span><br><span class="line">使用 <span class="hljs-keyword">TRUNCATE</span> <span class="hljs-keyword">TABLE</span> 命令（仅仅删除表格中的数据）：</span><br><span class="line"><span class="hljs-keyword">TRUNCATE</span> <span class="hljs-keyword">TABLE</span> 表名称</span><br></pre></td></tr></table></figure></p>
+<h4 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h4><p>ALTER TABLE 语句用于在已有的表中添加、修改或删除列。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 如需在表中添加列，请使用下列语法:</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> column_name datatype</span><br><span class="line"><span class="hljs-comment"># 要删除表中的列，请使用下列语法：</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name </span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> column_name</span><br><span class="line"><span class="hljs-comment"># 要改变表中列的数据类型，请使用下列语法：</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">COLUMN</span> column_name datatype</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在表 "Persons" 中添加一个名为 "Birthday" 的新列</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line"><span class="hljs-keyword">ADD</span> Birthday <span class="hljs-built_in">date</span></span><br></pre></td></tr></table></figure>
+<h4 id="AUTO-INCREMENT"><a href="#AUTO-INCREMENT" class="headerlink" title="AUTO INCREMENT"></a>AUTO INCREMENT</h4><p>Auto-increment 会在新记录插入表中时生成一个唯一的数字。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 把 "Persons" 表中的 "P_Id" 列定义为 auto-increment 主键：</span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">P_Id <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">LastName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">FirstName <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">Address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">City <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),</span><br><span class="line">PRIMARY <span class="hljs-keyword">KEY</span> (P_Id)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h4 id="VIEW"><a href="#VIEW" class="headerlink" title="VIEW"></a>VIEW</h4><p>视图是基于 SQL 语句的结果集的可视化的表。</p>
+<h4 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 选取在 "Address" 列中带有 NULL 值的记录:</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> LastName,FirstName,Address <span class="hljs-keyword">FROM</span> Persons</span><br><span class="line"><span class="hljs-keyword">WHERE</span> Address <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/SQL/">SQL</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/25/多线程/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Multithreading</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/08/scrapy入门/">
+                <span class="level-item">scrapy入门</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
+        app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
+        placeholder: '快来评论吧！'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/maxtocat.gif" alt="Alohe">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Alohe
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        keep learning...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        12
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://octodex.github.com/" target="_blank">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/sailing-7">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="https://weibo.com/u/5459019335">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="music" href="http://music.163.com/m/user/home?id=273155403">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/machine-learning/">
+            <span class="level-start">
+                <span class="level-item">machine learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python/">
+            <span class="level-start">
+                <span class="level-item">python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/算法/">
+            <span class="level-start">
+                <span class="level-item">算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="SQL" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Xufan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

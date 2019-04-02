@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>正则表达式 - alohe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="RegEx">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2019/01/08/正则表达式/index.html">
+<meta property="og:site_name" content="alohe">
+<meta property="og:description" content="RegEx">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-01-08T05:30:46.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="RegEx">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136944640-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136944640-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="正则表达式" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">🏠</a>
+                
+                <a class="navbar-item" href="/archives">📆</a>
+                
+                <a class="navbar-item" href="/categories">🎯</a>
+                
+                <a class="navbar-item" href="/tags">📎</a>
+                
+                <a class="navbar-item" href="/2000/03/02/留言板/">📮</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-08T04:44:10.000Z">2019-01-08</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 698 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                正则表达式
+            
+        </h1>
+        <div class="content">
+            <h1 id="RegEx"><a href="#RegEx" class="headerlink" title="RegEx"></a>RegEx</h1><a id="more"></a>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># []中为可以的字符</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r[a-z]n"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"r[0-9]n"</span>, <span class="hljs-string">'dog r4ns to cat'</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"r[a-z0-9]n"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;run&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;r4n&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;run&apos;&gt;
+</code></pre><h2 id="特殊种类匹配"><a href="#特殊种类匹配" class="headerlink" title="特殊种类匹配"></a>特殊种类匹配</h2><h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># \d 代表所有数字</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\dn"</span>, <span class="hljs-string">'dog r3ns to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># \D 代表所有不是数字</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\Dn"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;r3n&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;run&apos;&gt;
+</code></pre><h3 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># \s 匹配所有空白符号[\t\n\r\f\v]</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\sn"</span>, <span class="hljs-string">'dog r\nns to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># \S 匹配不是空白符号</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\Sn"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;r\nn&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;run&apos;&gt;
+</code></pre><h3 id="所有字母数字和”-”"><a href="#所有字母数字和”-”" class="headerlink" title="所有字母数字和”_”"></a>所有字母数字和”_”</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># \w : [0-9a-zA-Z_]</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\wn"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># \W opposite to \w</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r\Wn"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 7), match=&apos;run&apos;&gt;
+None
+</code></pre><h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># \b 紧贴着字符的空白字符</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"\bruns\b"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># \B 无需紧贴着</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"\B runs \B"</span>, <span class="hljs-string">'dog  runs  to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 8), match=&apos;runs&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 10), match=&apos; runs &apos;&gt;
+</code></pre><h3 id="特殊字符和任意字符"><a href="#特殊字符和任意字符" class="headerlink" title="特殊字符和任意字符"></a>特殊字符和任意字符</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># \\</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"runs\\"</span>, <span class="hljs-string">'dog runs\ to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># . 除了\n都可以匹配</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"r.ns"</span>, <span class="hljs-string">'dog r[ns to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 9), match=&apos;runs\\&apos;&gt;
+&lt;_sre.SRE_Match object; span=(4, 8), match=&apos;r[ns&apos;&gt;
+</code></pre><h3 id="句首句尾"><a href="#句首句尾" class="headerlink" title="句首句尾"></a>句首句尾</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># ^ 句首</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"^dog"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br><span class="line"><span class="hljs-comment"># $ 句尾</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"cat$"</span>, <span class="hljs-string">'dog runs to cat'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(0, 3), match=&apos;dog&apos;&gt;
+&lt;_sre.SRE_Match object; span=(12, 15), match=&apos;cat&apos;&gt;
+</code></pre><h3 id="是否"><a href="#是否" class="headerlink" title="是否"></a>是否</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># ？</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"Mon(day)?"</span>, <span class="hljs-string">'Monday'</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"Mon(day)?"</span>, <span class="hljs-string">'Mon'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(0, 6), match=&apos;Monday&apos;&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match=&apos;Mon&apos;&gt;
+</code></pre><h3 id="多行匹配"><a href="#多行匹配" class="headerlink" title="多行匹配"></a>多行匹配</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># multi-line</span></span><br><span class="line">string = <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">Dog runs to cat.</span></span><br><span class="line"><span class="hljs-string">I run to dog.</span></span><br><span class="line"><span class="hljs-string">'''</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"^I"</span>, string, flags=re.M))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(18, 19), match=&apos;I&apos;&gt;
+</code></pre><h3 id="0或多次-1或多次"><a href="#0或多次-1或多次" class="headerlink" title="0或多次  1或多次"></a>0或多次  1或多次</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># * 0或多次</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"ab*"</span>, <span class="hljs-string">"a"</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"ab*"</span>, <span class="hljs-string">"abbbbbbb"</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># + 1或多次</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"ab+"</span>, <span class="hljs-string">"a"</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"ab+"</span>, <span class="hljs-string">"abbbbbbb"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(0, 1), match=&apos;a&apos;&gt;
+&lt;_sre.SRE_Match object; span=(0, 8), match=&apos;abbbbbbb&apos;&gt;
+None
+&lt;_sre.SRE_Match object; span=(0, 8), match=&apos;abbbbbbb&apos;&gt;
+</code></pre><h3 id="可选次数"><a href="#可选次数" class="headerlink" title="可选次数"></a>可选次数</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># &#123;m,n&#125; 可选次数</span></span><br><span class="line">print(re.search(<span class="hljs-string">r"ab&#123;2,10&#125;"</span>, <span class="hljs-string">"a"</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"ab&#123;2,7&#125;"</span>, <span class="hljs-string">"abbbbbb"</span>))</span><br><span class="line">print(re.search(<span class="hljs-string">r"ab&#123;6&#125;"</span>, <span class="hljs-string">"abbbbbb"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>None
+&lt;_sre.SRE_Match object; span=(0, 7), match=&apos;abbbbbb&apos;&gt;
+&lt;_sre.SRE_Match object; span=(0, 7), match=&apos;abbbbbb&apos;&gt;
+</code></pre><h3 id="GROUP组"><a href="#GROUP组" class="headerlink" title="GROUP组"></a>GROUP组</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># group</span></span><br><span class="line">match = re.search(<span class="hljs-string">r"(\d+), Data: (.+)"</span>, <span class="hljs-string">"ID: 123456 Data: Jan/8/2019"</span>)</span><br><span class="line"><span class="hljs-comment"># print(match.group())</span></span><br><span class="line"><span class="hljs-comment"># print(match.group(1))</span></span><br><span class="line"><span class="hljs-comment"># print(match.group(2))</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 自定义组名</span></span><br><span class="line">match = re.search(<span class="hljs-string">r"(?P&lt;id&gt;\d+), Data: (?P&lt;data&gt;.+)"</span>, <span class="hljs-string">"ID: 123456 Data: Jan/8/2019"</span>)</span><br><span class="line"><span class="hljs-comment"># print(match.group(id))</span></span><br><span class="line"><span class="hljs-comment"># print(match.group(data))</span></span><br></pre></td></tr></table></figure>
+<h3 id="寻找所有匹配"><a href="#寻找所有匹配" class="headerlink" title="寻找所有匹配"></a>寻找所有匹配</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># findall</span></span><br><span class="line">print(re.findall(<span class="hljs-string">r"r.n"</span>, <span class="hljs-string">"ran run ren"</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># | : or</span></span><br><span class="line">print(re.findall(<span class="hljs-string">r"(ran|run)"</span>, <span class="hljs-string">"ran run ren"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;ran&apos;, &apos;run&apos;, &apos;ren&apos;]
+[&apos;ran&apos;, &apos;run&apos;]
+</code></pre><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># re.sub 替换</span></span><br><span class="line">print(re.sub(<span class="hljs-string">r"r[ua]ns"</span>, <span class="hljs-string">"catches"</span>, <span class="hljs-string">"Dog runs to cat."</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>Dog catches to cat.
+</code></pre><h2 id="分裂"><a href="#分裂" class="headerlink" title="分裂"></a>分裂</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># re.split</span></span><br><span class="line">print(re.split(<span class="hljs-string">r"[;,\.]"</span>, <span class="hljs-string">"a;b,c.d;e"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;]
+</code></pre><h2 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Compile</span></span><br><span class="line">compile_re = re.compile(<span class="hljs-string">r"r[au]ns"</span>)</span><br><span class="line">print(compile_re.search(<span class="hljs-string">"Dog runs to cat."</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(4, 8), match=&apos;runs&apos;&gt;
+</code></pre>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/08/scrapy入门/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">scrapy入门</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2000/03/02/留言板/">
+                <span class="level-item">留言板 📮</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
+        app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
+        placeholder: '快来评论吧！'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/maxtocat.gif" alt="Alohe">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Alohe
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        keep learning...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        12
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://octodex.github.com/" target="_blank">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/sailing-7">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="https://weibo.com/u/5459019335">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="music" href="http://music.163.com/m/user/home?id=273155403">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/machine-learning/">
+            <span class="level-start">
+                <span class="level-item">machine learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python/">
+            <span class="level-start">
+                <span class="level-item">python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/算法/">
+            <span class="level-start">
+                <span class="level-item">算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="正则表达式" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Xufan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

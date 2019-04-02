@@ -2,24 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>一道排序题 - alohe</title>
+<title>Multithreading - alohe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="给定一组数，每次只能交换两个数字的位置，求全部排序完成的最小交换次数">
-<meta name="keywords" content="算法">
+    <meta name="description" content="多线程GIL(Global Interpreter Lock)尽管Python完全支持多线程编程， 但是解释器的C语言实现部分在完全并行执行时并不是线程安全的。 实际上，解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并不能利用多核CPU的优势 （比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一道排序题">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/一道排序题/index.html">
+<meta property="og:title" content="Multithreading">
+<meta property="og:url" content="http://yoursite.com/2019/02/25/多线程/index.html">
 <meta property="og:site_name" content="alohe">
-<meta property="og:description" content="给定一组数，每次只能交换两个数字的位置，求全部排序完成的最小交换次数">
+<meta property="og:description" content="多线程GIL(Global Interpreter Lock)尽管Python完全支持多线程编程， 但是解释器的C语言实现部分在完全并行执行时并不是线程安全的。 实际上，解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并不能利用多核CPU的优势 （比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-03-30T16:18:00.633Z">
+<meta property="og:updated_time" content="2019-02-26T05:06:13.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一道排序题">
-<meta name="twitter:description" content="给定一组数，每次只能交换两个数字的位置，求全部排序完成的最小交换次数">
+<meta name="twitter:title" content="Multithreading">
+<meta name="twitter:description" content="多线程GIL(Global Interpreter Lock)尽管Python完全支持多线程编程， 但是解释器的C语言实现部分在完全并行执行时并不是线程安全的。 实际上，解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并不能利用多核CPU的优势 （比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -104,7 +104,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="一道排序题" height="28">
+                <img src="/images/logo.svg" alt="Multithreading" height="28">
             
             </a>
         </div>
@@ -155,17 +155,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-30T01:28:06.000Z">2019-03-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-02-25T08:25:10.000Z">2019-02-25</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 74 words)
+                    4 minutes read (About 529 words)
                 </span>
                 
                 
@@ -179,22 +175,24 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                一道排序题
+                Multithreading
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>给定一组数，每次只能交换两个数字的位置，求全部排序完成的最小交换次数<br><a id="more"></a></p>
-</blockquote>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-params">(l)</span>:</span></span><br><span class="line">    k = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(l)):</span><br><span class="line"></span><br><span class="line">    li = l[i:]</span><br><span class="line">    j = li.index(min(li))</span><br><span class="line">    <span class="hljs-keyword">if</span> j == <span class="hljs-number">0</span>:</span><br><span class="line">        <span class="hljs-keyword">continue</span></span><br><span class="line">    l[i], l[i+j] = l[i+j], l[i]</span><br><span class="line">    k += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">return</span> k</span><br><span class="line"></span><br><span class="line">l = [<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]</span><br><span class="line">print(s(l))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># &gt;&gt;&gt; 2</span></span><br></pre></td></tr></table></figure>
-
+            <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="GIL-Global-Interpreter-Lock"><a href="#GIL-Global-Interpreter-Lock" class="headerlink" title="GIL(Global Interpreter Lock)"></a>GIL(Global Interpreter Lock)</h3><p>尽管Python完全支持多线程编程， 但是解释器的C语言实现部分在完全并行执行时并不是线程安全的。 实际上，解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并不能利用多核CPU的优势 （比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。<br><a id="more"></a></p>
+<h3 id="添加线程"><a href="#添加线程" class="headerlink" title="添加线程"></a>添加线程</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取已激活的线程数</span></span><br><span class="line">threading.active_count()</span><br><span class="line"><span class="hljs-comment"># 查看所有线程信息</span></span><br><span class="line">threading.enumerate()</span><br><span class="line"><span class="hljs-comment"># 查看现在正在运行的线程</span></span><br><span class="line">threading.current_thread()</span><br></pre></td></tr></table></figure>
+<p>添加线程<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">thread_job</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(<span class="hljs-string">'This is a thread of %s'</span> % threading.current_thread())</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 定义线程</span></span><br><span class="line">    thread = threading.Thread(target = thread_job)</span><br><span class="line">    <span class="hljs-comment"># 让线程开始工作</span></span><br><span class="line">    thread.start()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p>所有线程运行结束后再执行主线程</p>
+<h3 id="储存线程结果到Queue"><a href="#储存线程结果到Queue" class="headerlink" title="储存线程结果到Queue"></a>储存线程结果到Queue</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> threading</span><br><span class="line"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job</span><span class="hljs-params">(l, q)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(l)):</span><br><span class="line">        l[i] = l[i] ** <span class="hljs-number">2</span></span><br><span class="line">    q.put(l)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multithreading</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    q = Queue()</span><br><span class="line">    data = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]</span><br><span class="line">    threads = []</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(data)):</span><br><span class="line">    	t = threading.Thread(target=job, args=(data[i], q))</span><br><span class="line">    	threads.append(t)</span><br><span class="line">    	t.start()</span><br><span class="line">    <span class="hljs-keyword">for</span> thread <span class="hljs-keyword">in</span> threads:</span><br><span class="line">    	thread.join()</span><br><span class="line">    result = []</span><br><span class="line">    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(len(data)):</span><br><span class="line">    	result.append(q.get())</span><br><span class="line">    print(result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    multithreading()</span><br><span class="line"><span class="hljs-comment">## [[1, 4, 9], [9, 16, 25]]</span></span><br></pre></td></tr></table></figure>
+<h3 id="GIL测试"><a href="#GIL测试" class="headerlink" title="GIL测试"></a>GIL测试</h3><p>我们创建一个 job, 分别用 threading 和 一般的方式执行这段程序. 并且创建一个 list 来存放我们要处理的数据. 在 Normal 的时候, 我们这个 list 扩展4倍, 在 threading 的时候, 我们建立4个线程, 并对运行时间进行对比.<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> threading</span><br><span class="line"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> Queue</span><br><span class="line"><span class="hljs-keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job</span><span class="hljs-params">(l,q)</span>:</span></span><br><span class="line">    res = sum(l)</span><br><span class="line">    q.put(res)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multithreading</span><span class="hljs-params">(l)</span>:</span></span><br><span class="line">    q = Queue()</span><br><span class="line">    threads = []</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):</span><br><span class="line">    	t = threading.Thread(target=job, args=(copy.copy(l),q))</span><br><span class="line">    	t.start()</span><br><span class="line">    	threads.append(t)</span><br><span class="line">    <span class="hljs-keyword">for</span> thread <span class="hljs-keyword">in</span> threads:</span><br><span class="line">    	thread.join()</span><br><span class="line">    total = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):</span><br><span class="line">    	total += q.get()</span><br><span class="line">    print(total)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">normal</span><span class="hljs-params">(l)</span>:</span></span><br><span class="line">    res = sum(l*<span class="hljs-number">4</span>)</span><br><span class="line">    print(res)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    l = list(range(<span class="hljs-number">1000000</span>))</span><br><span class="line">    s_t = time.time()</span><br><span class="line">    multithreading(l)</span><br><span class="line">    print(<span class="hljs-string">'multithreading: %ss'</span> %(time.time()-s_t))</span><br><span class="line">    s_t = time.time()</span><br><span class="line">    normal(l)</span><br><span class="line">    print(<span class="hljs-string">'normal: %ss'</span> %(time.time()-s_t))</span><br><span class="line"><span class="hljs-comment">## 1999998000000</span></span><br><span class="line"><span class="hljs-comment">## multithreading: 0.06084728240966797s</span></span><br><span class="line"><span class="hljs-comment">## 1999998000000</span></span><br><span class="line"><span class="hljs-comment">## normal: 0.05951380729675293s</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="线程锁🔒"><a href="#线程锁🔒" class="headerlink" title="线程锁🔒"></a>线程锁🔒</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lock = threading.Lock()</span><br><span class="line"><span class="hljs-comment"># lock</span></span><br><span class="line">lock.acquire()</span><br><span class="line"><span class="hljs-comment"># release</span></span><br><span class="line">lock.release()</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/算法/">算法</a>
+                    <a class="has-link-grey -link" href="/tags/python/">python</a>
                 </div>
             </div>
         </div>
@@ -212,16 +210,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/30/video/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/26/多进程/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">硬train的故事</span>
+                <span class="level-item">Multiprocessing</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/27/keras notebook/">
-                <span class="level-item">Keras手把手教学之 💯</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/21/sql/">
+                <span class="level-item">SQL</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -418,7 +416,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="一道排序题" height="28">
+                    <img src="/images/logo.svg" alt="Multithreading" height="28">
                 
                 </a>
                 <p class="is-size-7">
