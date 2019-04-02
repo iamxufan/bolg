@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Matplotlibn笔记📒 - alohe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="12import matplotlib.pyplot as pltimport numpy as np">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matplotlibn笔记📒">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/matplotlib/index.html">
+<meta property="og:site_name" content="alohe">
+<meta property="og:description" content="12import matplotlib.pyplot as pltimport numpy as np">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-03-27T04:03:18.802Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matplotlibn笔记📒">
+<meta name="twitter:description" content="12import matplotlib.pyplot as pltimport numpy as np">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Matplotlibn笔记📒" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-26T07:01:28.000Z">2019-03-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python/">python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 525 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Matplotlibn笔记📒
+            
+        </h1>
+        <div class="content">
+            <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>)</span><br><span class="line">y1 = <span class="hljs-number">2</span>*x + <span class="hljs-number">1</span></span><br><span class="line">y2 = x**<span class="hljs-number">2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(num = <span class="hljs-number">3</span>, figsize=(<span class="hljs-number">8</span>,<span class="hljs-number">5</span>))</span><br><span class="line"><span class="hljs-comment"># x,y的标题</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">'$x$'</span>);plt.ylabel(<span class="hljs-string">'$y$'</span>)</span><br><span class="line">plt.yticks([<span class="hljs-number">0</span>,<span class="hljs-number">50</span>,<span class="hljs-number">100</span>],</span><br><span class="line">           [<span class="hljs-string">'$bad$'</span>,<span class="hljs-string">'$normal$'</span>,<span class="hljs-string">'$good$'</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># gca = get current axis</span></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="hljs-string">'right'</span>].set_color(<span class="hljs-string">'none'</span>)</span><br><span class="line">ax.spines[<span class="hljs-string">'top'</span>].set_color(<span class="hljs-string">'none'</span>)</span><br><span class="line">ax.xaxis.set_ticks_position(<span class="hljs-string">'bottom'</span>)</span><br><span class="line">ax.yaxis.set_ticks_position(<span class="hljs-string">'left'</span>)</span><br><span class="line"><span class="hljs-comment"># ax.spines['bottom'].set_position(('data',0))</span></span><br><span class="line"><span class="hljs-comment"># ax.spines['left'].set_position(('data',0))</span></span><br><span class="line"></span><br><span class="line">l1, = plt.plot(x,y2,label = <span class="hljs-string">'$up$'</span>)</span><br><span class="line">l2, = plt.plot(x,y1,color=<span class="hljs-string">'red'</span>,linewidth=<span class="hljs-number">1.0</span>,linestyle=<span class="hljs-string">'--'</span>,label=<span class="hljs-string">'$down$'</span>)</span><br><span class="line">plt.legend(handles=[l1,l2],loc=<span class="hljs-string">'best'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 注解</span></span><br><span class="line">x0 = <span class="hljs-number">6</span></span><br><span class="line">y0 = x0**<span class="hljs-number">2</span></span><br><span class="line">plt.scatter(x0,y0,s=<span class="hljs-number">20</span>) <span class="hljs-comment"># 展示点</span></span><br><span class="line">plt.plot([x0,x0],[y0,<span class="hljs-number">0</span>],<span class="hljs-string">'k--'</span>,lw=<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.annotate(<span class="hljs-string">r'$2x+1=%s$'</span> % y0,xy=(x0,y0),xycoords=<span class="hljs-string">'data'</span>,xytext=(<span class="hljs-number">8</span>,<span class="hljs-number">30</span>),</span><br><span class="line">            arrowprops=dict(arrowstyle=<span class="hljs-string">'-&gt;'</span>,connectionstyle=<span class="hljs-string">'arc3,rad=.2'</span>),color=<span class="hljs-string">'pink'</span>)</span><br><span class="line"></span><br><span class="line">plt.text(<span class="hljs-number">2</span>,<span class="hljs-number">50</span>,<span class="hljs-string">r'$This\ is\ some\ text.\ \mu\ \sigma_i\ \alpha_t$'</span>,fontdict=&#123;<span class="hljs-string">'size'</span>:<span class="hljs-number">12</span>,<span class="hljs-string">'color'</span>:<span class="hljs-string">'red'</span>&#125;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_2_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">(x,y)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span>-x/<span class="hljs-number">2</span>+x**<span class="hljs-number">5</span>+y**<span class="hljs-number">3</span>)*np.exp(-x**<span class="hljs-number">2</span>-y**<span class="hljs-number">2</span>)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">z</span><span class="hljs-params">(x,y)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> (x**<span class="hljs-number">2</span> + y**<span class="hljs-number">2</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="hljs-number">256</span></span><br><span class="line">x = np.linspace(<span class="hljs-number">-3</span>,<span class="hljs-number">3</span>,n)</span><br><span class="line">y = np.linspace(<span class="hljs-number">-3</span>,<span class="hljs-number">3</span>,n)</span><br><span class="line">X,Y = np.meshgrid(x,y)</span><br><span class="line"></span><br><span class="line">plt.contourf(X,Y,f(X,Y),<span class="hljs-number">7</span>,alpha=<span class="hljs-number">0.5</span>,cmap=plt.cm.cool)</span><br><span class="line">C = plt.contour(X,Y,f(X,Y),<span class="hljs-number">7</span>,colors=<span class="hljs-string">'black'</span>)</span><br><span class="line">plt.clabel(C,inline=<span class="hljs-literal">True</span>,)</span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_4_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">100</span>).reshape((<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))</span><br><span class="line">plt.imshow(a,interpolation=<span class="hljs-string">'nearest'</span>)</span><br><span class="line">plt.colorbar(shrink=<span class="hljs-number">0.9</span>)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;function matplotlib.pyplot.show(*args, **kw)&gt;
+</code></pre><p><img src="/images/matplotlib/output_5_1.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> mpl_toolkits.mplot3d <span class="hljs-keyword">import</span> Axes3D</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax = Axes3D(fig)</span><br><span class="line">X = np.arange(<span class="hljs-number">-4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0.25</span>)</span><br><span class="line">Y = np.arange(<span class="hljs-number">-4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0.25</span>)</span><br><span class="line">X,Y = np.meshgrid(X,Y)</span><br><span class="line">R = np.sqrt(X**<span class="hljs-number">2</span>+Y**<span class="hljs-number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.plot_surface(X,Y,R,cmap=<span class="hljs-string">'rainbow'</span>)</span><br><span class="line">ax.contourf(X,Y,R,zdir=<span class="hljs-string">'z'</span>,offset=<span class="hljs-number">0</span>,cmap=<span class="hljs-string">'rainbow'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_7_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plt.figure()</span><br><span class="line">plt.subplot(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)</span><br><span class="line">plt.plot(np.arange(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>))</span><br><span class="line">plt.subplot(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>)</span><br><span class="line">plt.plot(np.arange(<span class="hljs-number">1</span>,<span class="hljs-number">20</span>)**<span class="hljs-number">2</span>)</span><br><span class="line">plt.subplot(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span><br><span class="line">plt.plot(np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">100</span>))</span><br><span class="line">plt.subplot(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>)</span><br><span class="line">plt.plot(np.array(np.sin(np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">10</span>,<span class="hljs-number">0.1</span>))))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_8_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.gridspec <span class="hljs-keyword">as</span> gridspec</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># plt.figure()</span></span><br><span class="line"><span class="hljs-comment"># ax1 = plt.subplot2grid((3,3),(0,0),colspan=3,rowspan=1)</span></span><br><span class="line"><span class="hljs-comment"># ax1.plot(np.random.normal(0,1,100))</span></span><br><span class="line"><span class="hljs-comment"># ax1.set_title('time')</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ax2 = plt.subplot2grid((3,3),(1,0),colspan=2,rowspan=1)</span></span><br><span class="line"><span class="hljs-comment"># ax2 = plt.subplot2grid((3,3),(1,2),colspan=1,rowspan=2)</span></span><br><span class="line"><span class="hljs-comment"># ax2 = plt.subplot2grid((3,3),(2,0),colspan=1,rowspan=1)</span></span><br><span class="line"><span class="hljs-comment"># ax2 = plt.subplot2grid((3,3),(2,1),colspan=1,rowspan=1)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># plt.show()</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># plt.figure()</span></span><br><span class="line"><span class="hljs-comment"># gs = gridspec.GridSpec(3,3)</span></span><br><span class="line"><span class="hljs-comment"># ax1 = plt.subplot(gs[0,:])</span></span><br><span class="line"><span class="hljs-comment"># ax2 = plt.subplot(gs[1,:2])</span></span><br><span class="line"><span class="hljs-comment"># ax3 = plt.subplot(gs[1:,2])</span></span><br><span class="line"><span class="hljs-comment"># ax4 = plt.subplot(gs[-1,0])</span></span><br><span class="line"><span class="hljs-comment"># ax5 = plt.subplot(gs[-1,1])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">50</span>)</span><br><span class="line">y1 = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">50</span>)</span><br><span class="line">y2 = np.random.normal(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line">fig,ax1 = plt.subplots()</span><br><span class="line">ax2 = ax1.twinx()</span><br><span class="line">ax1.plot(x,y1,<span class="hljs-string">'g-'</span>)</span><br><span class="line">ax2.plot(x,-y2,<span class="hljs-string">'b-'</span>)</span><br><span class="line">ax1.set_xlabel(<span class="hljs-string">'X data'</span>)</span><br><span class="line">ax1.set_ylabel(<span class="hljs-string">'Y1'</span>,color=<span class="hljs-string">'g'</span>)</span><br><span class="line">ax2.set_ylabel(<span class="hljs-string">'Y2'</span>,color=<span class="hljs-string">'b'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_12_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> scipy.stats <span class="hljs-keyword">import</span> t</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="hljs-number">-5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0.1</span>)</span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(x,t.pdf(x,<span class="hljs-number">2</span>))</span><br><span class="line">plt.plot(x,t.pdf(x,<span class="hljs-number">10</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/matplotlib/output_14_0.png" alt="png"></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/27/keras notebook/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Keras手把手教学之 💯</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/02/numpy/">
+                <span class="level-item">Numpy笔记📒</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/machine-learning/">
+            <span class="level-start">
+                <span class="level-item">machine learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python/">
+            <span class="level-start">
+                <span class="level-item">python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/算法/">
+            <span class="level-start">
+                <span class="level-item">算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/02/MNIST/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="我的第一个神经网络——手写数字识别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-02T04:39:28.000Z">2019-04-02</time></div>
+                    <a href="/2019/04/02/MNIST/" class="has-link-black-ter is-size-6">我的第一个神经网络——手写数字识别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/30/video/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="硬train的故事">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T15:46:37.000Z">2019-03-30</time></div>
+                    <a href="/2019/03/30/video/" class="has-link-black-ter is-size-6">硬train的故事</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/30/一道排序题/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一道排序题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T01:28:06.000Z">2019-03-30</time></div>
+                    <a href="/2019/03/30/一道排序题/" class="has-link-black-ter is-size-6">一道排序题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/27/keras notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Keras手把手教学之 💯">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T03:39:28.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/keras notebook/" class="has-link-black-ter is-size-6">Keras手把手教学之 💯</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/26/matplotlib/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Matplotlibn笔记📒">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-26T07:01:28.000Z">2019-03-26</time></div>
+                    <a href="/2019/03/26/matplotlib/" class="has-link-black-ter is-size-6">Matplotlibn笔记📒</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python/">python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2000/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2000</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/机器学习/">
+                        <span class="tag">机器学习</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/02/MNIST/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="我的第一个神经网络——手写数字识别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-02T04:39:28.000Z">2019-04-02</time></div>
+                    <a href="/2019/04/02/MNIST/" class="has-link-black-ter is-size-6">我的第一个神经网络——手写数字识别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/30/video/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="硬train的故事">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T15:46:37.000Z">2019-03-30</time></div>
+                    <a href="/2019/03/30/video/" class="has-link-black-ter is-size-6">硬train的故事</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/30/一道排序题/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一道排序题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T01:28:06.000Z">2019-03-30</time></div>
+                    <a href="/2019/03/30/一道排序题/" class="has-link-black-ter is-size-6">一道排序题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/27/keras notebook/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Keras手把手教学之 💯">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T03:39:28.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/keras notebook/" class="has-link-black-ter is-size-6">Keras手把手教学之 💯</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/machine-learning/">machine learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/26/matplotlib/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Matplotlibn笔记📒">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-26T07:01:28.000Z">2019-03-26</time></div>
+                    <a href="/2019/03/26/matplotlib/" class="has-link-black-ter is-size-6">Matplotlibn笔记📒</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python/">python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2000/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2000</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/机器学习/">
+                        <span class="tag">机器学习</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Matplotlibn笔记📒" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Xufan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
