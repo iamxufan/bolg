@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
 
 
     
@@ -98,7 +98,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-2-column">
+<body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -112,15 +112,15 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">🏠</a>
+                <a class="navbar-item" href="/">🏠Home</a>
                 
-                <a class="navbar-item" href="/archives">📆</a>
+                <a class="navbar-item" href="/archives">📆Archives</a>
                 
-                <a class="navbar-item" href="/categories">🎯</a>
+                <a class="navbar-item" href="/categories">🎯Categories</a>
                 
-                <a class="navbar-item" href="/tags">📎</a>
+                <a class="navbar-item" href="/tags">📎Tags</a>
                 
-                <a class="navbar-item" href="/2000/03/02/留言板/">📮</a>
+                <a class="navbar-item" href="/2000/03/02/留言板/">📮Mail</a>
                 
             </div>
             
@@ -149,13 +149,21 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Multithreading
+            
+        </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-25T08:25:10.000Z">2019-02-25</time>
+                <time class="level-item has-text-grey" datetime="2019-02-25T08:25:10.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-02-25</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-02-26T05:06:13.891Z"><i class="far fa-calendar-check">&nbsp;</i>2019-02-26</time>
+                
                 
                 
                 <span class="level-item has-text-grey">
@@ -175,7 +183,6 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Multithreading
             
         </h1>
         <div class="content">
@@ -188,10 +195,21 @@
 <h3 id="线程锁🔒"><a href="#线程锁🔒" class="headerlink" title="线程锁🔒"></a>线程锁🔒</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lock = threading.Lock()</span><br><span class="line"><span class="hljs-comment"># lock</span></span><br><span class="line">lock.acquire()</span><br><span class="line"><span class="hljs-comment"># release</span></span><br><span class="line">lock.release()</span><br></pre></td></tr></table></figure>
         </div>
         
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/02/25/多线程/">Multithreading</a></li>
+            <li><strong>本文作者：</strong><a href="http://yoursite.com">Xufan</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/02/25/多线程/">http://yoursite.com/2019/02/25/多线程/</a></li>
+            <li><strong>发布时间：</strong>2019-02-25</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0">
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
                     <a class="has-link-grey -link" href="/tags/python/">python</a>
                 </div>
             </div>
@@ -249,13 +267,15 @@
 
     </div>
 </div>
+
+
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
     
@@ -349,62 +369,6 @@
         
     </div>
 </div>
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Kaggle/">
-            <span class="level-start">
-                <span class="level-item">Kaggle</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/machine-learning/">
-            <span class="level-start">
-                <span class="level-item">machine learning</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/python/">
-            <span class="level-start">
-                <span class="level-item">python</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/算法/">
-            <span class="level-start">
-                <span class="level-item">算法</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
-    </div>
-</div>
 
     
     
@@ -414,7 +378,9 @@
     
 </div>
 
+
                 
+
             </div>
         </div>
     </section>
@@ -444,17 +410,9 @@
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
+                        <i class="fab fa-creative-commons,fab fa-creative-commons-by,fab fa-creative-commons-nc,fab fa-creative-commons-sa"></i>
                         
                     </a>
                 </p>
