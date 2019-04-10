@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>scrapy入门 - alohe</title>
+<title>Category: Kaggle - alohe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="安装1$ pip3 install scrapy">
-<meta name="keywords" content="python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="scrapy入门">
-<meta property="og:url" content="http://yoursite.com/2019/01/08/scrapy入门/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="alohe">
+<meta property="og:url" content="http://yoursite.com/categories/Kaggle/index.html">
 <meta property="og:site_name" content="alohe">
-<meta property="og:description" content="安装1$ pip3 install scrapy">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-01-27T03:35:16.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="scrapy入门">
-<meta name="twitter:description" content="安装1$ pip3 install scrapy">
+<meta name="twitter:title" content="alohe">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -104,7 +99,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="scrapy入门" height="28">
+                <img src="/images/logo.svg" alt="alohe" height="28">
             
             </a>
         </div>
@@ -150,56 +145,66 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Kaggle</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/04/10/hello ML/" class="image is-7by1">
+            <img class="thumbnail" src="/images/kaggle.png" alt="kaggle比赛初体验">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-08T04:44:10.000Z">2019-01-08</time>
+                <time class="level-item has-text-grey" datetime="2019-04-10T05:01:28.000Z">2019-04-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Kaggle/">Kaggle</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 141 words)
+                    4 minutes read (About 545 words)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span> visits
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                scrapy入门
+                <a class="has-link-black-ter" href="/2019/04/10/hello ML/">kaggle比赛初体验</a>
             
         </h1>
         <div class="content">
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install scrapy</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd desktop/tutorial</span><br><span class="line">$ scrapy startproject tutorial</span><br></pre></td></tr></table></figure>
-<h3 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在tutorial/spiders目录下创建quotes_spider.py写入：</span></span><br><span class="line"><span class="hljs-keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QuotesSpider</span><span class="hljs-params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="hljs-string">"quotes"</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_requests</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        urls = [</span><br><span class="line">            <span class="hljs-string">'http://quotes.toscrape.com/page/1/'</span>,</span><br><span class="line">            <span class="hljs-string">'http://quotes.toscrape.com/page/2/'</span>,</span><br><span class="line">        ]</span><br><span class="line">        <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls:</span><br><span class="line">            <span class="hljs-keyword">yield</span> scrapy.Request(url=url, callback=self.parse)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(self, response)</span>:</span></span><br><span class="line">        page = response.url.split(<span class="hljs-string">"/"</span>)[<span class="hljs-number">-2</span>]</span><br><span class="line">        filename = <span class="hljs-string">'quotes-%s.html'</span> % page</span><br><span class="line">        <span class="hljs-keyword">with</span> open(filename, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br><span class="line">        self.log(<span class="hljs-string">'Saved file %s'</span> % filename)</span><br></pre></td></tr></table></figure>
-<h3 id="运行爬虫"><a href="#运行爬虫" class="headerlink" title="运行爬虫"></a>运行爬虫</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy crawl quotes</span><br></pre></td></tr></table></figure>
-<h3 id="尝试使用shell调试"><a href="#尝试使用shell调试" class="headerlink" title="尝试使用shell调试"></a>尝试使用shell调试</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy shell &apos;http://quotes.toscrape.com/page/1/&apos;</span><br></pre></td></tr></table></figure>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 可使用css和xpath进行匹配</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>response.css(<span class="hljs-string">'title::text'</span>).extract_first()</span><br><span class="line"><span class="hljs-string">'Quotes to Scrape'</span></span><br></pre></td></tr></table></figure>
-
+            <blockquote><p>Hello,machine learning!</p>
+<footer><strong>kaggle链接 👉🏻</strong><cite><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">https://www.kaggle.com/c/digit-recognizer/overview</a></cite></footer></blockquote>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/python/">python</a>
+                <a class="button is-size-7 is-light" href="/2019/04/10/hello ML/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
@@ -207,49 +212,9 @@
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/21/sql/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">SQL</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/08/正则表达式/">
-                <span class="level-item">正则表达式</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        notify: false,
-        verify: true,
-        app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
-        app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
-        placeholder: '快来评论吧！'
-    });
-</script>
-
-    </div>
-</div>
 </div>
                 
 
@@ -425,7 +390,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="scrapy入门" height="28">
+                    <img src="/images/logo.svg" alt="alohe" height="28">
                 
                 </a>
                 <p class="is-size-7">
