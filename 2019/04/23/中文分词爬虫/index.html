@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>拉勾网爬虫案例 - alohe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="拉勾网爬虫">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拉勾网爬虫案例">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/中文分词爬虫/index.html">
+<meta property="og:site_name" content="alohe">
+<meta property="og:description" content="拉勾网爬虫">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-23T08:39:22.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拉勾网爬虫案例">
+<meta name="twitter:description" content="拉勾网爬虫">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/logo.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136944640-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136944640-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="拉勾网爬虫案例" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">🏠Home</a>
+                
+                <a class="navbar-item" href="/archives">📆Archives</a>
+                
+                <a class="navbar-item" href="/categories">🎯Categories</a>
+                
+                <a class="navbar-item" href="/tags">📎Tags</a>
+                
+                <a class="navbar-item" href="/2000/03/02/留言板/">📮Mail</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                拉勾网爬虫案例
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-23T08:30:28.000Z">2019-04-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python/">python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1037 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            
+        </h1>
+        <div class="content">
+            <p>拉勾网爬虫<br><a id="more"></a></p>
+<blockquote><p>源代码</p>
+<footer><strong>github链接 👉🏻</strong><cite><a href="https://github.com/sailing-7/kaggle-case/blob/master/%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E7%88%AC%E8%99%AB.ipynb" target="_blank" rel="noopener">jupyter notebook</a></cite></footer></blockquote>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //                       _oo0oo_</span></span><br><span class="line"><span class="hljs-comment"># //                      o8888888o</span></span><br><span class="line"><span class="hljs-comment"># //                      88" . "88</span></span><br><span class="line"><span class="hljs-comment"># //                      (| -_- |)</span></span><br><span class="line"><span class="hljs-comment"># //                      0\  =  /0</span></span><br><span class="line"><span class="hljs-comment"># //                    ___/`---'\___</span></span><br><span class="line"><span class="hljs-comment"># //                  .' \\|     |// '.</span></span><br><span class="line"><span class="hljs-comment"># //                 / \\|||  :  |||// \</span></span><br><span class="line"><span class="hljs-comment"># //                / _||||| -:- |||||- \</span></span><br><span class="line"><span class="hljs-comment"># //               |   | \\\  -  /// |   |</span></span><br><span class="line"><span class="hljs-comment"># //               | \_|  ''\---/''  |_/ |</span></span><br><span class="line"><span class="hljs-comment"># //               \  .-\__  '-'  ___/-. /</span></span><br><span class="line"><span class="hljs-comment"># //             ___'. .'  /--.--\  `. .'___</span></span><br><span class="line"><span class="hljs-comment"># //          ."" '&lt;  `.___\_&lt;|&gt;_/___.' &gt;' "".</span></span><br><span class="line"><span class="hljs-comment"># //         | | :  `- \`.;`\ _ /`;.`/ - ` : | |</span></span><br><span class="line"><span class="hljs-comment"># //         \  \ `_.   \_ __\ /__ _/   .-` /  /</span></span><br><span class="line"><span class="hljs-comment"># //     =====`-.____`.___ \_____/___.-`___.-'=====</span></span><br><span class="line"><span class="hljs-comment"># //                       `=---='</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //               佛祖保佑         永无BUG</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br><span class="line"><span class="hljs-comment"># //</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用selenium进行爬虫"><a href="#使用selenium进行爬虫" class="headerlink" title="使用selenium进行爬虫"></a>使用selenium进行爬虫</h2><h3 id="提取cookie"><a href="#提取cookie" class="headerlink" title="提取cookie"></a>提取cookie</h3><p>由于拉勾网反爬虫机制的原因，首先登陆自己账号，并提取cookie</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="hljs-string">'/Users/xufan/Desktop/chromedriver'</span>)</span><br><span class="line">browser.delete_all_cookies()</span><br><span class="line">browser.get(<span class="hljs-string">'https://www.lagou.com/jobs/5826843.html'</span>)</span><br><span class="line"></span><br><span class="line">username = <span class="hljs-string">'17600991883'</span></span><br><span class="line">password = <span class="hljs-string">'a6676610'</span></span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="hljs-string">'//*[@id="lg_tbar"]/div/ul/li[1]/a'</span>).click()</span><br><span class="line">browser.find_element_by_xpath(<span class="hljs-string">'/html/body/section/div[2]/div[1]/div[2]/form/div[1]/input'</span>).send_keys(username)</span><br><span class="line">browser.find_element_by_xpath(<span class="hljs-string">'/html/body/section/div[2]/div[1]/div[2]/form/div[2]/input'</span>).send_keys(password)</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="hljs-number">3</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="hljs-string">'/html/body/section/div[2]/div[1]/div[2]/form/div[5]/input'</span>).click()</span><br><span class="line">time.sleep(<span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">cookie_list = browser.get_cookies()</span><br><span class="line">browser.get(<span class="hljs-string">'https://www.lagou.com/zhaopin/shenduxuexi/?labelWords=label'</span>)</span><br><span class="line">browser.delete_all_cookies()</span><br><span class="line"><span class="hljs-keyword">for</span> cookie <span class="hljs-keyword">in</span> cookie_list:</span><br><span class="line">    browser.add_cookie(cookie)</span><br></pre></td></tr></table></figure>
+<h3 id="爬取职位网址"><a href="#爬取职位网址" class="headerlink" title="爬取职位网址"></a>爬取职位网址</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">job_web_list = []</span><br><span class="line">base_url = <span class="hljs-string">'https://www.lagou.com/zhaopin/shenduxuexi/'</span></span><br><span class="line">count = <span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,<span class="hljs-number">30</span>):</span><br><span class="line">    <span class="hljs-keyword">if</span> i%<span class="hljs-number">5</span> == <span class="hljs-number">0</span>:</span><br><span class="line">        print(<span class="hljs-string">'已爬取%s页'</span>%i)</span><br><span class="line">    url = base_url + str(i)</span><br><span class="line">    browser.get(url)</span><br><span class="line">    html = browser.page_source</span><br><span class="line"><span class="hljs-comment">#     time.sleep(1)</span></span><br><span class="line">    xpath_data = etree.HTML(html)</span><br><span class="line">    web_list = xpath_data.xpath(<span class="hljs-string">'//*[@class="p_top"]/a[@class="position_link"]/@href'</span>)</span><br><span class="line">    <span class="hljs-keyword">for</span> web <span class="hljs-keyword">in</span> web_list:</span><br><span class="line">        job_web_list.append(web)</span><br><span class="line">print(len(job_web_list))</span><br></pre></td></tr></table></figure>
+<pre><code>已爬取5页
+已爬取10页
+已爬取15页
+已爬取20页
+已爬取25页
+435
+</code></pre><h3 id="爬取职位明细"><a href="#爬取职位明细" class="headerlink" title="爬取职位明细"></a>爬取职位明细</h3><p>遍历爬取上一个爬虫爬到的网址</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">browser = webdriver.Chrome(<span class="hljs-string">'/Users/xufan/Desktop/chromedriver'</span>)</span><br><span class="line">browser.get(<span class="hljs-string">'https://www.lagou.com/'</span>)</span><br><span class="line">browser.delete_all_cookies()</span><br><span class="line"><span class="hljs-keyword">for</span> cookie <span class="hljs-keyword">in</span> cookie_list:</span><br><span class="line">    browser.add_cookie(cookie)</span><br><span class="line">htmls = []</span><br><span class="line">p = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> job_web_list[:]:</span><br><span class="line">    p += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">if</span> p % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>:</span><br><span class="line">        print(<span class="hljs-string">'已爬取%s个'</span>%p)</span><br><span class="line"><span class="hljs-comment">#     time.sleep(6)</span></span><br><span class="line">    browser.get(url)</span><br><span class="line">    html = browser.page_source</span><br><span class="line">    xpath_data = etree.HTML(html)</span><br><span class="line"><span class="hljs-comment">#     if xpath_data.xpath('/html/body/div/p[1]/text()')[0] == '当前账号存在异常，请验证后继续访问！':</span></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-string">'当前账号存在异常'</span> <span class="hljs-keyword">in</span> html:</span><br><span class="line">        time.sleep(<span class="hljs-number">10</span>)</span><br><span class="line">        browser.get(url)</span><br><span class="line">        html = browser.page_source</span><br><span class="line">    htmls.append(html)</span><br><span class="line">print(<span class="hljs-string">'共%s个职位'</span>%len(htmls))</span><br></pre></td></tr></table></figure>
+<pre><code>已爬取50个
+已爬取100个
+已爬取150个
+已爬取200个
+已爬取250个
+已爬取300个
+已爬取350个
+已爬取400个
+共435个职位
+</code></pre><h3 id="创建文本txt"><a href="#创建文本txt" class="headerlink" title="创建文本txt"></a>创建文本txt</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="hljs-string">'职位.txt'</span>,<span class="hljs-string">'w'</span>)</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(htmls)):</span><br><span class="line">    xpath_data = etree.HTML(htmls[i])</span><br><span class="line"><span class="hljs-comment">#     job = xpath_data.xpath('/html/body/div[2]/div/div[1]/div/@title')</span></span><br><span class="line"><span class="hljs-comment">#     keywords = xpath_data.xpath('/html/body/div[2]/div/div[1]/dd/p[1]/span/text()')</span></span><br><span class="line">    describes = xpath_data.xpath(<span class="hljs-string">'//*[@class="job-detail"]/p/text()'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="hljs-comment">#     f.write(','.join(job))</span></span><br><span class="line"><span class="hljs-comment">#     f.write(','.join(keywords))</span></span><br><span class="line"><span class="hljs-comment">#     f.write('\n')</span></span><br><span class="line">    f.write(<span class="hljs-string">','</span>.join(describes))</span><br><span class="line">    f.write(<span class="hljs-string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">'finish'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<pre><code>finish
+</code></pre><h3 id="解析数据"><a href="#解析数据" class="headerlink" title="解析数据"></a>解析数据</h3><p>解析出各个变量，保存为csv</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">job_dataframe_list = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(htmls)):</span><br><span class="line">    xpath_data = etree.HTML(htmls[i])</span><br><span class="line">    </span><br><span class="line">    company = xpath_data.xpath(<span class="hljs-string">'//*[@id="job_company"]/dt/a/div/h2/em/text()'</span>)</span><br><span class="line">    job = xpath_data.xpath(<span class="hljs-string">'/html/body/div[2]/div/div[1]/div/@title'</span>)</span><br><span class="line">    salary = xpath_data.xpath(<span class="hljs-string">'/html/body/div[2]/div/div[1]/dd/p[1]/span[1]/text()'</span>)</span><br><span class="line">    place = xpath_data.xpath(<span class="hljs-string">'/html/body/div[2]/div/div[1]/dd/p[1]/span[2]/text()'</span>)</span><br><span class="line">    experience = xpath_data.xpath(<span class="hljs-string">'/html/body/div[2]/div/div[1]/dd/p[1]/span[3]/text()'</span>)</span><br><span class="line">    education = xpath_data.xpath(<span class="hljs-string">'/html/body/div[2]/div/div[1]/dd/p[1]/span[4]/text()'</span>)</span><br><span class="line">    describes = xpath_data.xpath(<span class="hljs-string">'//*[@class="job-detail"]/p/text()'</span>)</span><br><span class="line">    </span><br><span class="line">    temp = []</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(company))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(job))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(salary))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(education))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(place))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(experience))</span><br><span class="line">    temp.append(<span class="hljs-string">','</span>.join(describes))</span><br><span class="line">    job_dataframe_list.append(temp)</span><br><span class="line">    </span><br><span class="line">dataframe = pd.DataFrame(job_dataframe_list, </span><br><span class="line">                         columns=[<span class="hljs-string">'company'</span>,<span class="hljs-string">'job'</span>,<span class="hljs-string">'salary'</span>,<span class="hljs-string">'education'</span>,<span class="hljs-string">'place'</span>,<span class="hljs-string">'experience'</span>,<span class="hljs-string">'describes'</span>])</span><br><span class="line">                         </span><br><span class="line">dataframe.to_csv(<span class="hljs-string">'职位.csv'</span>,index=<span class="hljs-number">0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="查看原始数据数据"><a href="#查看原始数据数据" class="headerlink" title="查看原始数据数据"></a>查看原始数据数据</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="hljs-string">'职位.csv'</span>)</span><br><span class="line">print(data.shape)</span><br><span class="line">data.sample(<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(435, 7)
+</code></pre><h2 id="清洗数据"><a href="#清洗数据" class="headerlink" title="清洗数据"></a>清洗数据</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 删除空值行</span></span><br><span class="line">data.dropna(axis=<span class="hljs-number">0</span>, how=<span class="hljs-string">'any'</span>, inplace=<span class="hljs-literal">True</span>)</span><br><span class="line">data.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(409, 6)
+</code></pre><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(data.shape[<span class="hljs-number">0</span>]):</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        <span class="hljs-comment"># 计算平均工资</span></span><br><span class="line">        find_salary = re.findall(<span class="hljs-string">r'\d*\d'</span>,data[<span class="hljs-string">'salary'</span>][i])</span><br><span class="line">        avg_salary = int((int(find_salary[<span class="hljs-number">0</span>])+int(find_salary[<span class="hljs-number">1</span>]))/<span class="hljs-number">2</span>*<span class="hljs-number">1000</span>)</span><br><span class="line">        data[<span class="hljs-string">'salary'</span>][i] = avg_salary</span><br><span class="line">        <span class="hljs-comment"># 去掉斜杠</span></span><br><span class="line">        data[<span class="hljs-string">'company'</span>][i] = re.sub(<span class="hljs-string">r'[\n]'</span>,<span class="hljs-string">' '</span>,data[<span class="hljs-string">'company'</span>][i])</span><br><span class="line">        data[<span class="hljs-string">'education'</span>][i] = re.sub(<span class="hljs-string">r'[/]'</span>,<span class="hljs-string">' '</span>,data[<span class="hljs-string">'education'</span>][i])</span><br><span class="line">        data[<span class="hljs-string">'place'</span>][i] = re.sub(<span class="hljs-string">r'[/]'</span>,<span class="hljs-string">' '</span>,data[<span class="hljs-string">'place'</span>][i])</span><br><span class="line">        data[<span class="hljs-string">'experience'</span>][i] = re.sub(<span class="hljs-string">r'[/]'</span>,<span class="hljs-string">' '</span>,data[<span class="hljs-string">'experience'</span>][i])</span><br><span class="line">    <span class="hljs-keyword">except</span>:</span><br><span class="line">        <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">data.head(<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="爬虫结束"><a href="#爬虫结束" class="headerlink" title="爬虫结束"></a>爬虫结束</h2><h2 id="爬取失败案例"><a href="#爬取失败案例" class="headerlink" title="爬取失败案例"></a>爬取失败案例</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># import requests</span></span><br><span class="line"><span class="hljs-comment"># from lxml import etree</span></span><br><span class="line"><span class="hljs-comment"># import time</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># class Lagou_Job_Deeplearning(object):</span></span><br><span class="line"><span class="hljs-comment">#     def __init__(self):</span></span><br><span class="line"><span class="hljs-comment">#         self.base_url = 'https://www.lagou.com/zhaopin/shenduxuexi/'</span></span><br><span class="line"><span class="hljs-comment">#         self.headers = &#123;</span></span><br><span class="line"><span class="hljs-comment">#             'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36',</span></span><br><span class="line"><span class="hljs-comment">#         &#125;</span></span><br><span class="line"><span class="hljs-comment">#         self.job_web = []</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#     def get_response(self, url):</span></span><br><span class="line"><span class="hljs-comment">#         html = requests.get(url, headers=self.headers).content.decode('utf-8')</span></span><br><span class="line"><span class="hljs-comment">#         return html</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#     def prase_data(self, html):</span></span><br><span class="line"><span class="hljs-comment">#         xpath_data = etree.HTML(html)</span></span><br><span class="line"><span class="hljs-comment">#         web_list = xpath_data.xpath('//*[@class="p_top"]/a[@class="position_link"]/@href')</span></span><br><span class="line"><span class="hljs-comment">#         for web in web_list:</span></span><br><span class="line"><span class="hljs-comment">#             self.job_web.append(web)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#         return self.job_web</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#     def start(self):</span></span><br><span class="line"><span class="hljs-comment">#         count = 0</span></span><br><span class="line"><span class="hljs-comment">#         for i in range(1,3):</span></span><br><span class="line"><span class="hljs-comment">#             count += 15</span></span><br><span class="line"><span class="hljs-comment">#             print('已爬取%s个'%count)</span></span><br><span class="line"><span class="hljs-comment">#             url = self.base_url + str(i)</span></span><br><span class="line"><span class="hljs-comment">#             response_html = self.get_response(url)</span></span><br><span class="line"><span class="hljs-comment">#             data = self.prase_data(response_html)</span></span><br><span class="line"><span class="hljs-comment">#             time.sleep(2)</span></span><br><span class="line"><span class="hljs-comment">#             print(data)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#         print('共%s个职位'%len(data))</span></span><br><span class="line"><span class="hljs-comment">#         return data</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># job_web_list = Lagou_Job_Deeplearning().start()</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/04/23/中文分词爬虫/">拉勾网爬虫案例</a></li>
+            <li><strong>本文作者：</strong><a href="http://yoursite.com">Xufan</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/04/23/中文分词爬虫/">http://yoursite.com/2019/04/23/中文分词爬虫/</a></li>
+            <li><strong>发布时间：</strong>2019-04-23</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/爬虫/">爬虫</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2050/04/18/简历/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">个人简历</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/10/hello ML/">
+                <span class="level-item">kaggle比赛初体验——手写数字识别</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'KVlosDuGg786qWYx8ygFxeaY-gzGzoHsz',
+        app_key: 'KzvTOyhUyvMlqsRztSTlN7wr',
+        placeholder: '快来评论吧！'
+    });
+</script>
+
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#使用selenium进行爬虫">
+        <span class="has-mr-6">1</span>
+        <span>使用selenium进行爬虫</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#提取cookie">
+        <span class="has-mr-6">1.1</span>
+        <span>提取cookie</span>
+        </a></li><li>
+        <a class="is-flex" href="#爬取职位网址">
+        <span class="has-mr-6">1.2</span>
+        <span>爬取职位网址</span>
+        </a></li><li>
+        <a class="is-flex" href="#爬取职位明细">
+        <span class="has-mr-6">1.3</span>
+        <span>爬取职位明细</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建文本txt">
+        <span class="has-mr-6">1.4</span>
+        <span>创建文本txt</span>
+        </a></li><li>
+        <a class="is-flex" href="#解析数据">
+        <span class="has-mr-6">1.5</span>
+        <span>解析数据</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#查看原始数据数据">
+        <span class="has-mr-6">2</span>
+        <span>查看原始数据数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#清洗数据">
+        <span class="has-mr-6">3</span>
+        <span>清洗数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#格式">
+        <span class="has-mr-6">3.1</span>
+        <span>格式</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#爬虫结束">
+        <span class="has-mr-6">4</span>
+        <span>爬虫结束</span>
+        </a></li><li>
+        <a class="is-flex" href="#爬取失败案例">
+        <span class="has-mr-6">5</span>
+        <span>爬取失败案例</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/maxtocat.gif" alt="Alohe">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Alohe
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        keep learning...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        14
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://octodex.github.com/" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/sailing-7">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="https://weibo.com/u/5459019335">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="music" href="http://music.163.com/m/user/home?id=273155403">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="拉勾网爬虫案例" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Xufan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons,fab fa-creative-commons-by,fab fa-creative-commons-nc,fab fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
